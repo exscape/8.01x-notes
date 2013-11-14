@@ -1,0 +1,8 @@
+.DS_Store
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.pdf
+*.toc
+Graphics/vectors/old

@@ -1,0 +1,631 @@
+\documentclass[8.01x]{subfiles}
+\begin{document}
+
+\chapter{Week 2}
+
+\section{Lecture 4: The motion of projectiles}
+
+This lecture doesn't really contain anything new, and instead mostly consists of applications of the material covered last week.\\
+Let's revisit this trajectory:
+
+\begin{center}
+\includegraphics[scale=0.65]{Graphics/2d-motion-decomposed}
+\end{center}
+
+For now, ignore the green parts, which are the location of the position vector after a certain time has passed.
+Relevant equations for this trajectory can be written as
+
+\begin{align}
+x(t) &= (v_0 \cos \alpha) t \label{eq:lec3_x}\\
+v_x(t) &= v_0 \cos \alpha\\
+y(t) &= (v_0 \sin \alpha) t - \frac{1}{2} g t^2 \label{eq:lec3_y}\\
+v_y(t) &= v_0 \sin \alpha - g t
+\end{align}
+
+where $v_0$ is the initial velocity diagonally, at angle $\alpha$ to the ground, and $g = +\SI{9.8}{m/s^2}$. Since $g$ is a positive number, we need to use a minus sign here: we have defined increasing $y$ to be upwards, but gravity accelerates downwards.\\
+The first and third equations could have $x_0$ and $y_0$ terms, respectively, but we can choose the origin of our coordinate system to be the exact point from where the ball is thrown, which means we choose them both to equal zero.
+
+We can write equation \eqref{eq:lec3_y} above in terms of $x$, instead of $t$, by solving \eqref{eq:lec3_x} for $t$ and making the substitution:
+
+\begin{align}
+x(t) &= (v_0 \cos \alpha) t\\
+t &= \frac{x(t)}{v_0 \cos \alpha}
+\end{align}
+
+\begin{align}
+y(t) &= (v_0 \sin \alpha) t - \frac{1}{2} g t^2\\
+y(t) &= (v_0 \sin \alpha) \left(\frac{x(t)}{v_0 \cos \alpha}\right) - \frac{1}{2} g \left(\frac{x(t)}{v_0 \cos \alpha}\right)^2\\
+     &= x(t) \tan \alpha - \frac{1}{2} g \frac{x(t)^2}{v_0^2 \cos^2 \alpha}
+\end{align}
+
+We can then see than this has the form of $x$ times a constant, minus $x^2$ times another constant.
+
+\begin{equation}
+y(t) = C_1 x - C_2 x^2
+\end{equation}
+
+In other words, the trajectory has the shape of a parabola.
+
+We can calculate when the object reaches the maximum height (the apex of the trajectory), by setting the $v_y(t)$ equation equal to zero. The object is launched with an initial velocity, and will only ever stand ``still'' (on the $y$ axis) when it changes from going upwards to going downwards, since the equation doesn't capture what happens when it hits the ground, etc.
+
+\begin{align}
+v_0 \sin \alpha - g t_p = 0\\
+g t_p = v_0 \sin \alpha\\
+t_p = \frac{v_0 \sin \alpha}{g}
+\end{align}
+
+In other words, the time to reach the peak height is simply the initial velocity in the $y$ direction, divided by the acceleration that opposes that motion.\\
+We can then find the highest point $h$ that it ever reaches, by substituting the time found above into the $y(t)$ equation:
+
+\begin{align}
+h &= (v_0 \sin \alpha) \frac{v_0 \sin \alpha}{g} - \frac{1}{2} g \left(\frac{v_0 \sin \alpha}{g}\right)^2\\
+h &= \frac{v_0^2 \sin^2 \alpha}{g} - \frac{v_0^2 \sin^2 \alpha}{2g}\\
+h &= \frac{v_0^2 \sin^2 \alpha}{g} \left(1 - \frac{1}{2}\right)\\
+h &= \frac{(v_0 \sin \alpha)^2}{2g}
+\end{align}
+
+Next up: at what time does the object return to $y = 0$? We could simply set up that equation, solve it, and pick the larger solution (since it will be true at $t = 0$ as well), but we can do it a bit faster. Because the curve is symmetric, the time must be exactly twice that to reach the curve's apex at $t_p$. (The lecture labels the points O at the origin, P at the peak and S where the object lands, but the illustration I used doesn't have them written down.)
+
+\begin{align}
+t_s = 2 t_p\\
+t_s = \frac{2 v_0 \sin \alpha}{g}
+\end{align}
+
+Finally, we can calculate the distance OS, which is the horizontal distance traveled. (Not the entire distance of the parabola, i.e. the arc length!)\\
+This distance is simply $v_{0x}$ times $t_s$, but that expression is slightly hairy. Let's write it down and then simplify it:
+
+\begin{align}
+\text{OS} = (v_0 \cos \alpha) \left(\frac{2 v_0 \sin \alpha}{g} \right)\\
+\text{OS} = \frac{2 v_0^2 \sin \alpha \cos \alpha}{g}
+\end{align}
+
+$2 \sin \alpha \cos \alpha = \sin 2 \alpha$ via a trigonometric identity, so:
+
+\begin{align}
+\text{OS} = \frac{v_0^2 \sin 2\alpha}{g} \label{eq:lec3_os}
+\end{align}
+
+If we want to maximize the horizontal distance, what angle should we fire it at? Well, we could use calculus and attempt to maximize the function, but it can be done much faster (and easier) by simply looking at the equation. $\sin \alpha$ is maximized when $\alpha = \ang{90}$, so $\sin 2\alpha$ must be maximized when $2\alpha = \ang{90}$ or $\alpha = \ang{45}$.
+
+I would not call that immediately obvious, but it is obvious that the answer must be somewhere between 0 and 90 degrees, excluding both of those extremes. At 90 degrees, OS is zero, since the entire trajectory will be one-dimensional in $y$.\\
+It cannot be 0 degrees, either, because in that case, it hits the ground instantly after it is fired, so OS is again zero! It's fired completely parallel to the ground, so that $y$ never goes above 0 -- but gravity starts pulling it downwards instantly.\\
+The angle must be somewhere between 0 and 90 degrees, and as it turns out, it's exactly in between.
+
+\subsection{Trajectory demonstrations}
+
+We will now try to validate these results in real life, by firing a small projectile (a small metal pellet) at various angles, recording the horizontal distance traveled -- keeping the uncertainties in mind.
+
+First, we measure the maximum height that the pellet can be fired to, a few times. We make an estimate of the height, with an uncertainty, and can use that together with $g$ to calculate $v_o^2$. That is then used in the equation for OS as shown above, to calculate where the pellet should land.
+
+The measurement, along with many others the professor did in preparation, showed the height to be approximately $h_{max} = \SI{3.07(15)}{m}$, so the error is about 5\%.\\
+We can solve for $v_0^2$:
+
+\begin{align}
+h &= \frac{(v_0 \sin \alpha)^2}{2g}\\
+h &= \frac{v_0^2 \sin^2 \alpha}{2g}\\
+v_0^2 &= \frac{2gh}{\sin^2 \alpha}
+\end{align}
+
+With the value of $h_{max}$ and the error, we find $v_0^2 = \SI{60.2 \pm 3}{m^2/s^2}$. A strange unit, but this is the value we need, rather than $v_0$ itself.
+
+Next, we need to set the angle. There will be uncertainty here, as well -- the professor assumes $\pm \ang{1}$ in his ability to set it up. Since the answer depends on the sine of twice the angle, we may be off by about 2 degrees. However, $\sin{\ang{88}} \approx \sin{\ang{90}}$: the error is about 0.06\%, which pales in comparison to the 5\% error above, so we can completely ignore this source of uncertainty.
+
+Now, using equation \eqref{eq:lec3_os} for OS, we can calculate the predicted horizontal travel distance:
+
+\begin{equation}
+\ang{45}\text{ OS} = \frac{\SI{60.2}{m^2/s^2} \sin \ang{90}}{\SI{9.81}{m/s^2}} = \SI{6.14(31)}{m}
+\end{equation}
+
+The pellet is fired, and it indeed hits inside the uncertainty range, by the looks of it at more or less 6.05 meters.
+
+Next up, we want to do the same, but at a 30 degree angle, instead. This time, the uncertainty due to the sine of the angle is no longer negligible. What previously was a 0.06\% error suddenly becomes about a 2\% error -- the sine function is roughly ``flat'' around 90 degrees, but far from it around 60 degrees ($2 \times \ang{30}$).
+
+Making the same calculation as we did above, but with the different angle, we find $5.31$ m, but with an uncertainty of 7\% (using an easy  but perhaps not 100\% correct way of calculating uncertainties). That gives us a prediction of $\SI{5.31(37)}{m}$ for the 30 degree angle.\\
+Not only did the pellet hit within the uncertainty range, but it actually hit the indicator at the 5.31 meter mark!
+
+Next up: 60 degrees. It turns out that the horizontal distance traveled should be exactly equal to that at 30 degrees, because $\sin({2\cdot\ang{30}}) = \sin({2\cdot\ang{60}})$. $v_0^2$ and $g$ certainly didn't change, so this should indeed be true.\\
+The pellet yet again lands within the uncertainty range, though fairly close to being short. This is likely more indicative of the pellet gun's uncertainty and the exact angle than anything else, however -- but it's important to keep in mind that while it was close, it still was \emph{within} the uncertainty. This was certainly no failure.
+
+\subsection{A story about a monkey}
+
+No monkeys were hurt in the making of this demonstration!
+
+Imagine a monkey, sitting in a tree. A short bit away, a hunter places a golf ball cannon, aimed directly at the monkey (dotted line, below).
+
+\begin{center}
+\includegraphics[scale=0.8]{Graphics/lec4_monkey}
+\end{center}
+
+We already know that unless the golf ball's velocity is very high, gravity will pull it down in a parabola such that it misses the monkey. Only if the vertical distance traveled due to gravity is smaller than the height of the monkey can it hit.\\
+Because the horizontal velocity is the same regardless of whether there is gravity, we know that at a certain time $t$, the golf ball will be at the same $x$ position regardless; only the height will differ.
+
+The dotted line above shows how the ball would travel in the absence of gravity, while the filled line shows the parabolic trajectory it would take on Earth. As we can see, it falls a distance of $\frac{1}{2} g t_1^2$ during a time interval $t_1$ after being fired -- basic 1D kinematics.
+
+However, that is true at all times $t$ after $t = 0$, assuming it has not yet hit the ground (or anything else, for that matter).
+
+Now, there's an additional crux in this problem: as soon as the monkey sees the cannon fire, he lets go and starts falling. The monkey will fall with exactly the same acceleration as the golf ball, and since they started falling at the same time, the golf ball will hit the poor monkey despite his attempt to flee. Had he instead stayed where he was, all would probably be well!
+
+Note that this fact is independent of the golf ball's velocity, as long as it doesn't hit the ground before reaching the monkey's $x$ coordinate. High velocity or low velocity, the gravitational acceleration is the same regardless, and so the ball and the monkey will both fall the same vertical distance in a given amount of time.
+
+Now, let's imagine that all of this happens inside an elevator, which is in free fall. Both the gun and the monkey (and the tree) accelerate downwards at $-g$.
+
+\begin{center}
+\includegraphics[scale=0.6]{Graphics/lec4_elevator}
+\end{center}
+
+From the monkey's point of view, because he falls at the same acceleration and velocity as the gun, the golf ball comes straight at him, without any arcing. As shown above, as far as the monkey can see, the distance the ball has to travel is $\sqrt{D^2 + h^2}$, the hypotenuse of the triangle created by the horizontal distance to the cannon and the (vertical) height of the tree.
+
+Considering the golf ball's velocity, from this point of view, the monkey will get hit in
+
+\begin{equation}
+t_{kill} = \frac{\sqrt{D^2 + h^2}}{v_0}
+\end{equation}
+
+seconds. However, from a different perspective (see the previous image above), we would instead calculate it as
+
+\begin{equation}
+t_{kill} = \frac{D}{v_0 \cos \alpha}
+\end{equation}
+
+since $v_0 \cos \alpha$ is the ball's velocity in the horizontal direction.\\
+How come the two are not the same? Surely they must both agree? And they do. We can use the definition of $\cos \alpha$ in the above diagram:
+
+\begin{equation}
+\cos \alpha = \frac{D}{\sqrt{D^2 + h^2}}
+\end{equation}
+
+... and substitute that into what we had just above:
+
+\begin{equation}
+t_{kill} = \frac{D}{v_0 \frac{D}{\sqrt{D^2 + h^2}}} = \frac{\sqrt{D^2 + h^2}}{v_0} 
+\end{equation}
+
+and so the two agree on the timing of the monkey's unfortunate demise.
+
+\newpage
+
+\section{Lecture 5: Uniform circular motion}
+
+Consider an object moving at a constant speed $v$ around a circle of radius $r$:
+
+\begin{center}
+\includegraphics[scale=0.6]{Graphics/lec5_centripetal_acceleration}
+\end{center}
+
+We can define a few variables that relate to this motion. First out is $T$, the \emph{period} in seconds it takes the object to travel along the entire circumference once. Second is the \emph{frequency} $f$, which measures how many times it travels around the circle per second. The two are then inverses, so that $f = 1/T$ and $T = 1/f$.\\
+The SI unit for frequency is Hertz; the dimension is then $\text{dim Hertz} = \displaystyle \frac{1}{[T]}$, and $\SI{1}{Hertz} = \SI{1}{s^{-1}}$.
+
+We can consider how fast it moves in a different way, in measuring velocity in \emph{radians per second}, instead of meters per second (or other units of ``regular'' velocity). We call this \emph{angular velocity}, symbol $\omega$ (Greek letter lowercase omega). Since there are $2\pi$ radians in a circumference, this implies that
+
+\begin{equation}
+\omega = \frac{2 \pi}{T}
+\end{equation}
+
+As for the speed $v$ (not the velocity $\vec{v}$ just yet), we can write
+
+\begin{equation}
+v = \frac{2 \pi r}{T} = \omega r
+\end{equation}
+
+considering the relation shown in the previous equation. These two last equations are important to remember.
+
+\subsection{Centripetal acceleration}
+
+Note that as the object moves around in a circle, the direction of the velocity vector in constantly changing. This can only happen if there is a nonzero acceleration. This acceleration is called the \emph{centripetal acceleration}, often denoted by $\vec{a_c}$. This acceleration vector always points towards the center of the motion. Because the velocity vector is always tangent to the circle at any given point, the acceleration vector is always perpendicular to the velocity, assuming a constant \emph{speed} around the circle. (If the speed is \emph{not} constant, there will also be a tangential acceleration component, which means the net acceleration vector will not be exactly perpendicular to the velocity vector; the centripetal acceleration by itself is however always perpendicular to the velocity vector.)
+
+The magnitude of the centripetal acceleration can be stated as
+
+\begin{equation}
+|a_c| = \frac{v^2}{r} = \omega^2 r
+\end{equation}
+
+\subsubsection{Proportionality of $r$}
+Be careful when it comes to the proportionality of $r$, though! If $T$ is held constant, $v$ is a function of $r$, being equal to
+
+\begin{equation}
+v = \frac{2 \pi r}{T}
+\end{equation}
+
+and so increasing $r$ will also increase $v$, and thus in the end increase $a_c$:
+
+\begin{equation}
+|a_c| = \frac{v^2}{r} = \frac{4 \pi^2 r^2}{r T^2} = \frac{4 \pi^2 r}{T^2}
+\end{equation}
+
+Here, it's obvious that increasing $r$ will increase $a_c$, assuming $T$ is held constant. This should come as no surprise, as we are increasing our speed $v$ by moving a longer distance in the same amount of time.
+
+However, let's not fool ourselves into believing that $a_c \propto r$ is always a correct view! Let's now look at the case where we hold the velocity constant (thus changing T) while changing the radius. To get a nice look of how this works, we use the simple equation
+
+\begin{equation}
+|a_c| = \frac{v^2}{r}
+\end{equation}
+
+Here, holding $v$ constant, it's clear that the centripetal acceleration goes \emph{down} as we increase the radius of the circle we travel in.
+
+\subsubsection{The cause of acceleration}
+
+Something must be causing this acceleration, however. We will introduce \emph{force} next lecture, but for this lecture, we will talk about ``push'' and ``pull'' instead. Suppose you sat on a chair bolted onto a spinning disk. You would feel a ``push'' from the back of the chair, pushing you towards the center of the disk. If you instead tied a rope to a stick at the center, or just held on to a bolted-down stick in front of you, you would feel the rope/stick pulling you inwards. Note that in either case, the pull or push is towards the center.
+
+If the pull/push was suddenly removed somehow, the object would simply continue forward in a straight line, along its velocity vector, unless there are other forces (pushes/pulls) acting on it, such as gravity. This is demonstrated by a spinning disk with a ball tied to a string. The string is cut as the ball's velocity vector points straight upward, and the ball flies several meters straight up in the air, and then falls straight down again.\\
+Had it been cut at a different location, it would have followed a parabolic trajectory, as we have studied previously, with $v_0 = v$ and horizontal and vertical components being found by multiplying $v_0$ with the cosine and the sine, respectively, of the angle made with the ground.
+
+\subsection{Planetary orbits}
+
+Let's now have a quick look at the orbits of planets. We will look at them much closer in a few weeks, but until then, let's assume (incorrectly) that orbits are circular. (In reality, they are slightly elliptical.)\\
+First out, we have a lecture question:
+
+``The radius of Earth's orbit is $150 \times 10^6$ km. Assuming that the orbit is circular, what is the centripetal acceleration of the Earth?''
+
+They want the answer in $\text{km/yr}^2$, so we shouldn't have to do any ugly conversions.\\
+Let's see. The period is one year, by definition (not exactly 365.00 days, but that's another story).
+
+Because $\omega = \frac{2\pi}{T}$ and $T = 1$ year, we find $\omega^2 = 4\pi^2$ radians per year, and $\omega^2 r = (4 \pi^2)(\num{150e6}) = \SI{5.92e9}{km/yr^2}$.
+
+Just to make sure, let's also calculate it using $v^2/r$.
+
+$v$ is found by dividing the circumference of the orbit by the time (1 year), which in then equal in value (but obviously not units) to just the circumference. We then square that, and divide by the radius again; a bit redundant to divide out the radius, but let's go with it for simplicity:
+
+\begin{equation}
+v = \frac{2 \pi r}{T} = \frac{2 \pi r}{1 \text{ year}}
+\end{equation}
+
+\begin{equation}
+a_c = \frac{v^2}{r} = \frac{4 \pi^2 r^2}{r} = 4 \pi^2 r = \SI{5.92e9}{km/yr^2}
+\end{equation}
+
+Unsurprisingly, we get the same answer. Still, we have now double-checked, and have also gained a bit of practice doing in two different ways.
+
+Now, let's have a look at the orbits of various planets -- their mean distance to the sun (mean, since the orbits are not truly circular) and periods, and let's compare the centripetal acceleration of various planets. What we find can be seen on this plot below:
+
+\begin{center}
+\includegraphics[scale=0.5]{Graphics/lec5_gravity_inverse_r2}
+\end{center}
+
+(It's a bit fun to note that Pluto was still considered a planet when the lecture was recorded! Little has changed in classical mechanics since then, but that one thing certainly has.)
+
+Here, we see the centripetal acceleration on the vertical axis, and the mean distance to the sun on the horizontal. It's clear that the $1/R^2$ fit is rather brilliant! The closer a planet is to the sun, the stronger the centripetal acceleration is, and it falls off following the inverse square law.
+
+We've seen centripetal acceleration being proportional to $r$, and inversely proportional to $r$, but now it's inversely proportional to $r^2$! What gives? We will talk more about gravity and planetary orbits soon later in the course. Admittedly, I'm not sure about the exact answer, but looking up data on planetary orbits, I found that planets with larger $r$ also have smaller $v$; the further out you go, the slower planets move through space, in addition to having a lot more distance to cover.
+
+As with the previous examples of centripetal force, if we simply removed the sun (or somehow else removed its gravitational influence), the planets would simply continue on in straight lines, based on their previous velocity vectors.\\
+We will discuss gravity further in the coming weeks, but let's leave it here for now: as the distance to the sun is increased by a factor $x$, the effect of gravity is $x^2$ times less. The same is true for e.g. Earth's gravity too, of course, which is why the gravity is weaker further from the surface. (This is however \emph{not} the reason astronauts experience weightlessness, as gravity is still about 90\% as strong on the space station as it is on the surface. They are instead in constant free-fall around the Earth, which is essentially the meaning of an orbit!)
+
+\subsection{Centrifuges and more on centripetal acceleration}
+
+Let's now look at the rotation of a glass tube, with a marble inside. The glass tube starts out horizontal, with the marble inside it (see the first picture below):
+
+\begin{center}
+$\vcenter{\hbox{\includegraphics[scale=0.6]{Graphics/lec5_centripetal_acceleration_1}}}$
+$\vcenter{\hbox{\includegraphics[scale=0.6]{Graphics/lec5_centripetal_acceleration_2}}}$
+\end{center}
+
+Because the glass and the marble are both very smooth, the glass can neither push nor pull on the marble, and so cannot provide any centripetal acceleration. What happens? Well, the glass tube will still rotate, of course -- we assume it's powered by a motor of some kind. The marble, on the other hand, will continue on moving according to its still unchanged velocity vector.
+
+A moment later in time (second picture above), the tube has rotated such that the marble's velocity will take it towards the end of the tube, where we know from experience it will also stay, as long as the tube rotates quickly enough.
+
+\subsection{Artificial gravity through centripetal acceleration}
+
+Let's now look at ``perceived gravity'', or artificial gravity.
+
+\begin{center}
+\includegraphics[scale=0.6]{Graphics/lec5_gravity}
+\end{center}
+
+As the illustration shows, we will always experience gravity opposite to any pull or push. The same is true if we somehow hang on to a rope and spin around -- or ride a merry-go-round or something to that effect. We will have a centripetal force inwards, and feel a ``pull'' inwards, but perceive gravity in exactly the opposite direction, as if we were drawn outwards.
+
+Let us now consider a large, circular space station, which experiences almost no gravity (as it is in orbit, essentially in perpetual free fall). It is a big ``wheel'', with a radius of 100 m. We want the centripetal acceleration to be about \SI{10}{m/s^2} for a person standing on the outer wall. How fast should it rotate (what should be the period)?
+
+\begin{center}
+\includegraphics[scale=0.6]{Graphics/lec5_space_station}
+\end{center}
+
+We can use $\omega^2 r$ here; it should equal \SI{10}{m/s^2}, so we find
+
+\begin{align}
+(\omega^2)(\SI{100}{m}) &= \SI{10}{m/s^2}\\
+\omega^2 &= \frac{\SI{10}{m/s^2}}{\SI{100}{m}}\\
+\omega^2 &= \SI{0.1}{rad^2/s^2}\\
+\omega &= \sqrt{0.1} \text{ rad/s}
+\end{align}
+
+And, because $\omega = \frac{2 \pi}{T}$:
+
+\begin{align}
+\frac{2 \pi}{T} &= \sqrt{0.1}\\
+T &= \frac{2 \pi}{\sqrt{0.1}} \approx \SI{20}{s}
+\end{align}
+
+So if we rotated the space station with a period of about/just over 20 seconds, we would perceive it as if we had Earth's gravity.
+
+Now consider how the station might be arranged. The centripetal force is proportional to the distance to the center, so it is strongest at the outer wall. In the exact center of the station, there will be no perceived gravity at all. How does one get there, though? Considering the fact that gravity is perceived as being radially outwards, walking to the center is the same concept as walking to the ceiling in a regular house. You will simply need stairs, ladders, or something similar.
+
+For the same reason, you would have to use the stairs when going back ``down'' as well! The gravitational acceleration may be zero at the center, but it grows as you come closer to the outer edge. If you were to ``jump'' down the shaft, you would end up crashing into the outer wall at a velocity great enough that you may well be killed!
+
+\subsection{More on centrifuges}
+
+Let's have another look at centrifuges.\\
+Say we have a liquid filled with very tiny and very light particles; tiny and light enough that they don't sink to the bottom.
+
+\begin{center}
+\includegraphics[scale=0.6]{Graphics/lec5_centrifuge}
+\end{center}
+
+When we spin it around at a high speed, causing a high centripetal acceleration, the light particles are not so light any longer (as we will soon see, weight is the product of mass and acceleration, the latter of which just increased by a lot), and they sink to the bottom -- where the centripetal acceleration is the greatest.
+
+Let's make a quick calculation based on a lecture question:
+
+``The frequency of a centrifuge is 60 Hz and its radius is 0.15 m. What is the centripetal acceleration of an object in the centrifuge at a distance of 0.15 m from the center?''
+
+60 Hz is 3600 rpm, so it's spinning rather quickly. We can once again use $\omega^2 r$:
+
+\begin{equation}
+|a_c| = \omega^2 r = (2 \pi (\SI{60}{Hz}))^2 \times \SI{0.15}{m} = 21318.3 \approx \SI{21e3}{m/s^2}
+\end{equation}
+
+That's over 2000 \emph{times} the acceleration due to gravity, so the particles now experience such an acceleration that they weigh over 2000 times as much as they do in regular gravity!
+
+This is then put to the test in a demonstration. A solution of silver nitrate and sodium chloride is mixed, to produce a milky-white liquid of (most importantly) suspended silver chloride. A part of the solution is put in the centrifuge mentioned above, with a counterbalance of water on the opposite side, to provide stability.\\
+The centrifuge is started, and we temporarily move on to other type of centrifuge.
+
+Say we have a bucket of water attached to a rope. We swing it around such that it will be upside down at the top of its motion, with a velocity high enough that $|a_c| > g$. In other words, the bucket experiences an inwards pull due to the centripetal acceleration, which translates into it experiencing gravity in the opposite direction, outwards.\\
+Therefore, if we spin it fast enough, the water will be forced into the bottom of the bucket, even when upside down, and no water will come out.
+
+How fast do we have to swing it, if the rope is 1 meter long? (The question also states that the water's mass is 4 kg, which we didn't need to know to solve the problem.)
+
+\begin{align}
+\frac{v^2}{\SI{1}{m}} > \SI{9.8}{m/s^2}\\
+v^2 > \SI{9.8}{m^2/s^2}\\
+v > \sqrt{9.8} \text{ m/s}
+\end{align}
+
+We need to swing it faster than about 3.13 meters per second, or the water will start falling.\\
+Quickly returning to the silver chloride centrifuge, everything worked out as planned: the liquid is now clear, and there is a collection of white particles at the bottom of the tube, rather than spread out everywhere.
+
+Finally, the water bucket swing is put into practice, and it indeed works.
+
+\section{Lecture 6: Newton's first, second, and third laws}
+
+In this lecture, we will introduce the concept of \emph{force}, an extremely important quantity in physics. Last lecture used forces, but referred to them as ``pushes'' or ``pulls''. We will now start using the correct terminology.
+
+\subsection{Newton's first law}
+
+Newton's first law essentially dates back to Galileo Galilei, in his ``law of inertia''.\\
+Newton wrote it as
+
+\begin{quote}
+Every body perseveres in its state of rest, or uniform motion in a right line, unless it is compelled to change that state by forces impressed upon it.
+\end{quote}
+
+We have seen this in effect already, when decomposing 2D motion: the motion along the horizontal axis has thus far had a constant velocity, since we have ignoring air drag, which acts as a force to slow the object down. Along the vertical axis, on the other hand, we've always had gravity accelerating things downward.
+
+Newton's first law, however, is not valid in all reference frames. It is only valid in inertial references frames, the definition of which is a reference frame where the motion of a particle not under any forces moves in a straight line at constant speed. In particular, this is not true in a reference frame which is being accelerated in any way.
+
+So the question is: can we find an inertial reference frame? Is the lecture hall an inertial reference frame, for example?\\
+In can't be. The Earth spins, causing a centripetal acceleration. That's an acceleration, so the answer is already no. There are many additional reasons, though: the Earth moves around the Sun, again causing centripetal acceleration. The Sun moves around the galaxy's center, the galaxy itself has an orbit, and so on.
+
+The Earth has, as mentioned, a centripetal acceleration. We can estimate it by calculating $\omega^2 R_{earth}$, which turns out to be about \SI{0.034}{m/s^2}, which is of course much, much lower than the acceleration due to gravity. If the Earth spun much, much faster, the centripetal acceleration might start to cancel out gravity noticeably, however.
+
+Let's then calculate the centripetal acceleration due to the orbit around the Sun. The radius of the orbit is about $\SI{150e9}{m}$, and the period is of course one year.
+
+\begin{align}
+\omega &= \frac{2 \pi}{T} = \frac{2 \pi}{365 \cdot 24 \cdot 60 \cdot 60} = \SI{1.992e-7}{rad/s}\\
+a_c = \omega^2 r &= (\SI{1.992e-7}{rad/s})^2 \times \SI{150e9}{m} = \SI{5.95e-3}{m/s^2}
+\end{align}
+
+Because the centripetal accelerations calculated above are so tiny, we can consider the Earth as being very close to an inertial reference frame.
+
+A mathematical statement of Newton's first law might be
+
+\begin{equation}
+\sum \vec{F} = 0 \Rightarrow \frac{d\vec{v}}{dt} = 0 \text{ (Newton's first law)} \label{eq:newton1}
+\end{equation}
+
+\subsection{Newton's second law}
+
+Say we have a spring (though the law isn't specific to springs), in the absence of gravity. We extend the spring, and attach a mass $m_1$ at the end of the spring.
+
+\begin{center}
+\includegraphics[scale=0.6]{Graphics/lec6_newton2}
+\end{center}
+
+Immediately after we let go of the mass, so that the spring's ``pull'' contracts the spring and pulls the mass with it, we measure the acceleration of the mass to be $a_1$.\\
+We then replace the mass with another mass $m_2$, and measure the acceleration, in the same manner, to be $a_2$.
+
+We will then find that $m_1 a_1 = m_2 a_2$. The product $m a$ is the \emph{force} (which we have called a ``push'' or a ``pull'' until now) exerted upon the mass by the spring. The spring's force is independent on the mass, but the acceleration caused on the mass is not; the acceleration is inversely proportional to the mass.
+
+In equation form, Newton's second law -- one of the most important equations in physics -- reads
+
+\begin{equation}
+\vec{F} = m \vec{a} \text{ (Newton's second law)} \label{eq:newton2}
+\end{equation}
+
+As shown above, force is a vector. The direction of the acceleration caused by a force is always in the same direction as the force.
+
+There are other ways of stating it, such as the force being equal to the rate of change of momentum, but we have not yet introduced momentum and so will forget about that for now.\\
+The SI unit for force is the newton, in honor of Newton himself, of course. Because the product $m a$ is in units of $\displaystyle \text{kg} \cdot \frac{\text{m}}{\text{s}^2}$, 1 newton equals 1 $\displaystyle \text{kg} \cdot \frac{\text{m}}{\text{s}^2}$.
+
+Just as with the first law, we cannot truly prove Newton's second law. Like the first, it is only valid in inertial reference frames, and we cannot provide such a reference frame to conduct our experiments in.
+
+Note that no statement is made regarding speed or velocity, only acceleration. The law holds equally well at 0 m/s, 5 m/s and 5000 m/s. However, once speeds start becoming noteworthy in relation to the speed of light, Newtonian mechanics becomes more and more inaccurate, and we instead need to use Einstein's relativity for accurate results. This tends to not be an issue in daily life, however, as the two agree very closely at speeds far lower than the speed of light. Even for speeds of 10000 kilometers per second, Newton's equations work quite well (to within about 0.1\%). For speeds below 1000 km/s, in other words all everyday speeds, there is practically no difference at all.
+
+\subsection{Newton's third law}
+
+Let's now have a look at the gravitational force. Using the second law, we see that the force is equal to $m \vec{g}$. Double the mass, double the force, etc.\\
+We assume that the lecture hall is an inertial reference frame. Consider an object that is at rest (relative to the lecture hall). We know from the above that there must be a gravitational force on the object, pulling it downwards. However, it is at rest, so there is no acceleration (in our reference frame). Therefore, the net force on it \emph{must} be zero. This is only possible, of course, if there is an equal and opposite force -- or sums of forces that adds up to exactly cancel the gravitational force out.
+
+The above is the result of the third law, which can be stated as
+
+\begin{quote}
+If one object exerts a force on another, the other exerts the same force in the opposite direction on the one.
+\end{quote}
+
+In other words, if gravity pulls you down into your chair with a force of, say, 700 N, then the chair exerts a force of 700 N back on you. It can be stated more simply as $\text{action} = -\text{reaction}$.\\
+We can therefore also write the law as
+
+\begin{equation}
+\vec{F_{12}} = -\vec{F_{21}} \text{ (Newton's third law)} \label{eq:newton3}
+\end{equation}
+
+where $\vec{F_{ab}}$ means the force exerted \emph{by} object a \emph{on} object b. Note that some physics textbook authors use the reverse notation, which can get confusing.
+
+Unlike the first and second laws, the third laws always holds, including in accelerated reference frames.
+
+Also unlike the first law, there are many intuitive examples of the third:
+
+\begin{itemize*}
+\item A garden hose left on its own, with the water on, will start moving backwards. The hose sprays out water by a force, and so the water pushes back on the hose with a force of equal magnitude, and the hose moves backwards.
+\item You blow up a balloon, and then let it go. The balloon pushes the air out, so the air pushes on the balloon with an equal but opposite force, propelling the balloon backwards.
+\item When you fire a gun, the gun exerts a force on the bullet, and the bullet exerts a force back on the gun: recoil, causing the gun to move backwards unless held steadily.
+\item Even when you \emph{walk}, you exert a backwards force on the Earth, which then exerts a force back on you, propelling you forward.
+\end{itemize*}
+
+\subsection{Examples of Newton's laws in use}
+
+Let's look at a few examples of Newton's law in practice.
+
+\begin{center}
+\includegraphics[scale=0.6]{Graphics/lec6_newton3_force}
+\end{center}
+
+There's a force of 20 newtons towards the right, as shown. Because the total mass is 20 kg, and the force is 20 newton, there will be an acceleration of $\SI{1}{m/s^2}$ via $\displaystyle \vec{a} = \frac{\vec{F}}{m}$ -- Newton's second law. If not else, we know from intuition and daily life that both objects will move towards the right together, with the same acceleration (and thus velocity, since they started together), once they start moving.
+
+The entirety of the force is on object 1. Since they move together, there must be a force between object 1 and object 2 ($\vec{F_{12}}$), towards the right, or object two could not accelerate.
+
+Since we know that the force on object 1 from the left is 20 N, and we also know that $m_1 = \SI{5}{kg}$ and $a_1 = \SI{1}{m/s^2}$ to the right, we can use Newton's second law to find the net force on object 1 to be 5 N towards the right, despite the force on it from the left being 20 N.
+
+How come? Well, the answer lies in object 2. We know that $m_2 = \SI{15}{kg}$ and $a_2 = \SI{1}{m/s^2}$, so the net force on object 2 \emph{must} be 15 N towards the right. The \emph{only} force on object 2 is $\vec{F_{12}}$, so that too must be 15 N towards the right.
+
+What about object 1? Well, Because of $\vec{F_{12}}$ being 15 N to the right, there must be a force $\vec{F_{21}}$ of 15 N towards the left, back on object 1, which ``cancels out'' most of the 20 N, and leaves object 1 with a net 5 N force to the right. In math form:
+
+\begin{equation}
+\vec{F_1} = \vec{F} + \vec{F_{21}} = +20\hat{x} + (-15\hat{x}) = +5 \hat{x}
+\end{equation}
+
+... defining the increasing direction of $x$ being towards the right.
+
+Now, what about the sum of forces on object 2? Don't we have 15 N towards the right from object 1, and 15 N towards the left back to object 1, for a net zero force? No! The fact that $a \neq 0$ is enough to prove that this cannot be the case.
+
+It's important to note and understand that the two forces $\vec{F_{12}}$ and $\vec{F_{21}}$ act on different bodies. They don't cancel each other out on an individual object. $\vec{F_{21}}$ is a force that object 2 exerts on object 1 -- that fact does \emph{not} in any way negate the force exerted by 1 on 2! If that were the case, object 2 could not accelerate, since its net force would be zero.
+
+Newton's third law has an interesting, if immeasurable effect: not only do things we drop fall to the Earth, but the Earth always falls towards the things, as well. If we drop an apple from a certain height, there will be a gravitational force on the apple due to the Earth, causing a downward acceleration. However, the third law states that there must be an equal but opposite force on the Earth, due to the apple! The reason we never notice is that the Earth's mass is so extremely large, that the acceleration is on the order of $10^{-24} \text{ m/s}^2$ (or slightly less) or so in the case of an apple, with a total distance moved smaller than $10^{-23}$ m, even for an apple falling from 100 meters above the Earth's surface.\\
+Such tiny movements and accelerations are impossible to measure, but they should occur.
+
+
+\subsection{Newton's laws: summary}
+
+Let's summarize Newton's laws, and point out a few possible pitfalls.
+
+\textbf{Newton's first law} states that a body with no external forces (or no \emph{net} external force) on it will remain as it is, either at rest or moving at constant velocity in a straight line. This only holds true in inertial reference frames! If you are in a car, moving at a \emph{constant velocity} past a street lamp, from your (inertial) frame of reference, the street lamp moves with constant velocity -- and there certainly shouldn't be any net force on it, so all is well.\\
+If you accelerate, however, you will see the street lamp appear to accelerate without any net force on it. This is because your car is no longer an inertial reference frame, since it is accelerating with respect to the reference frame of the Earth (and the lamp), so the first law does not hold.
+
+\textbf{Newton's second law} states (in one form) that the acceleration of a body is equal to the \emph{net} force on that body, divided by the body's mass. The acceleration vector is in the same direction as the force vector.\\
+Mass is a measure of inertia, i.e. how much a body resists changes in motion. The larger the mass, the smaller the acceleration, for a given magnitude of force.
+
+\textbf{Newton's third law} states that whenever an object $a$ exerts a force on a body $b$ (an ``action force''), there is an equal but opposite force (a ``reaction force'') exerted by object $b$ back an $a$.\\
+This implies that when you are pulled downwards by the Earth, you also pull the Earth upwards.\\
+However, it does \emph{NOT} imply that when you sit on a chair, and the Earth pulls you down, the chair pushes you up! This is a \emph{very} important distinction. An action-reaction pair \emph{always} acts on different bodies, but note that the gravitational force and the chair's force both act on you!\\
+The \emph{second} law implies that if you don't move, the chair\footnote{Or something else, or a combination of things, such that the net force is zero.} must push you back up with a force of equal magnitude but opposite direction, because the net force on you must be zero if your acceleration is zero.
+
+\textbf{Another possible pitfall} is to say that force is the cause of motion -- not true! Force is the cause of \emph{change} in motion, that is, acceleration. You can travel at any velocity with no forces on you whatsoever -- in fact, the first law tells us that.\\
+On a related note, keep in mind that while in daily speech, acceleration refers to increasing your speed, while in physics, acceleration simply means change in speed. You accelerate when stopping your car -- the acceleration is in the opposite direction of the velocity (and will thus be negative if the velocity is positive), but it's an acceleration nonetheless.
+
+\textbf{Finally, the kilogram is a unit of \emph{mass}, not of weight}. In daily speech, the two are the same, but in physics, they are distinct quantities, and it's very important to understand how they differ and how they are related.
+
+\emph{Mass} is the measure of how difficult it is to change the motion of an object. Whether we think about pushing something to get it moving, or to try to stop something from moving does not matter: both will become more difficult as mass increases.\\
+The mass of an object is independent of where it is located; it is a property of an object due to its makeup.
+
+\emph{Weight}, on the other hand, is the force exerted on an object by gravity. You can calculate your approximate weight on Earth as $m g$, where $g = \SI{9.8}{m/s^2}$ is the approximate gravitational acceleration at the Earth's surface.\\
+The weight of an object \emph{changes} based on the local gravitational force -- a person weighs much less on the Moon than they do on Earth, but their mass would be the same in either location.
+
+A scale measures weight, not mass, but usually converts the measurement to a mass by dividing the measured force by $g$, which then via Newton's second law yields the mass.\\
+This means that if you bring a regular bathroom scale to the Moon, and weigh yourself on it, it will report about 1/6 of your actual mass, as the force of gravity is so much smaller on the Moon, but the scale doesn't know that it has moved: it will still divide the measured weight in newtons by \SI{9.8}{m/s^2}, and find an incorrect answer. The weight it \emph{measures} is correct, but the mass it reports is not.
+
+\subsection{Tension and another example of Newton's laws in use}
+
+Say we hang a mass $m$ from two strings, suspended at different heights. The leftmost string makes an angle of 45 degrees with the roof above, while the rightmost string makes an angle of 60 degrees. We call the tension in the rightmost string $T_1$, and in the leftmost $T_2$. We consider increasing $x$ to be towards the right, and increasing $y$ to be upwards.
+
+\begin{center}
+\includegraphics[scale=0.6]{Graphics/lec6_tension}
+\end{center}
+
+There will be a gravitational force of magnitude $m g$ downwards. Because the object is in equilibrium, sitting still with no acceleration, the \emph{net force} on the object must be zero -- that is clear from Newton's second law.\\
+Therefore, we conclude that the two tensions $T_1$ and $T_2$ perfectly balance the gravitational force $m g$, so that the net force on the object is zero.
+
+Force is a vector, so we can decompose this into two one-dimensional problems. We don't need to decompose the gravitational force, of course: it is already only in the $-y$ direction. Let's decompose the tension vectors, though.
+
+Let's start with $T_1$. It makes a 60 degree angle with the horizontal, so by using vector decomposition, we find
+
+\begin{align}
+T_{1x} &= T_1 \cos(\ang{60}) = \frac{T_1}{2}\\
+T_{1y} &= T_1 \sin(\ang{60}) = \frac{T_1 \sqrt{3}}{2}
+\end{align}
+
+As for $T_2$, it makes a 45 degree angle, so the sine and cosine are both one over the square root of two. (It makes sense that the force is equal in both directions, since the angle is exactly in the middle of a 90 degree angle, so to speak.)
+
+\begin{align}
+T_{2x} &= T_2 \cos(\ang{45}) = \frac{T_2}{\sqrt{2}}\\
+T_{2y} &= T_2 \sin(\ang{45}) = \frac{T_2}{\sqrt{2}}
+\end{align}
+
+What then? Well, we know that the net force must be zero, since there is no acceleration. The same can be said for each axis independently, too: $\sum F_x = 0$ and $\sum F_y = 0$. We can set up equations representing this:
+
+\begin{align}
+T_{1x} + T_{2x} = 0\\
+\frac{T_1}{2} - \frac{T_2}{\sqrt{2}} = 0\\
+T_1 = \frac{2 T_2}{\sqrt{2}} = \sqrt{2} \cdot T_2 \label{eq:lec6_t1}
+\end{align}
+
+Note that because $T_2$ points towards the negative $x$ direction, the sum of these two forces becomes a subtraction.
+
+As for the $y$ axis:
+
+\begin{align}
+T_{1y} + T_{2y} = m g\\
+\frac{T_1 \sqrt{3}}{2} + \frac{T_2}{\sqrt{2}} = m g\\
+T_2 = \sqrt{2}\left(m g - \frac{T_1 \sqrt{3}}{2}\right)
+\end{align}
+
+Alternatively, we could have written $T_{1y} + T_{2y} - m g = 0$ (minus $m g$ since it is in the opposite direction) to show that the sum is zero, rather than saying that they must be equal. This is of course the same thing algebraically.
+
+We now have two equations with two unknowns. Let's substitute the value of $T_1$ into the second equation from \eqref{eq:lec6_t1} and find $T_2$ as a function of only $m$ and constants:
+
+\begin{align}
+T_2 = \sqrt{2}\left(m g - \frac{\sqrt{2} T_2 \sqrt{3}}{2}\right)\\
+T_2 = \sqrt{2} m g - T_2 \sqrt{3}\\
+T_2 + \sqrt{3} T_2 = \sqrt{2} m g\\
+T_2 (1 + \sqrt{3}) = \sqrt{2} m g\\
+T_2 = \frac{\sqrt{2} m g}{1 + \sqrt{3}}
+\end{align}
+
+Since $T_1 = \sqrt{2} T_2$, $T_1$ is simply
+
+\begin{equation}
+T_1 = \frac{2 m g}{1 + \sqrt{3}}
+\end{equation}
+
+We can finally substitute in some values. The lecture used $m = \SI{4}{kg}$, so let's try that. We find
+
+\begin{align}
+T_1 &= \frac{(2)(\SI{4}{kg})(\SI{9.8}{m/s^2})}{1 + \sqrt{3}} \approx \SI{28.7}{N}\\
+T_2 &= \frac{T_1}{\sqrt{2}} \approx \SI{20.3}{N}
+\end{align}
+
+The professor's answers differ slightly, but match up perfectly if we use $g = \SI{10}{m/s^2}$, so he most likely used that approximation.
+
+As a sanity check, and additional practice, let's just make sure that the forces indeed balance out.
+
+\begin{align}
+T_1 \cos(\ang{60}) - T_2 \cos(\ang{45}) &\overset{?}{=} 0\\
+14.35 - 14.35 &= 0
+\end{align}
+
+... so that indeed works out in the $x$ direction. Let's check $y$:
+
+\begin{align}
+T_1 \sin(\ang{60}) + T_2 \sin(\ang{45}) &\overset{?}{=} m g\\
+24.85 + 14.35 &= 39.2
+\end{align}
+
+It works out perfectly!
+
+\end{document}

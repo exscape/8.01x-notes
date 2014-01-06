@@ -140,7 +140,7 @@ If we take the time derivative, we will have a differential equation in $y$ whic
 \ddot{y} +  \frac{2 g}{\ell} y &= 0
 \end{align}
 
-Many things cancel, including $\dot{y}$. We get a result that is clearly a simple harmonic oscillation! However, more in this case than we have seen previously, this result is not that accurate; at least not for the demonstration in lecture. There is a lot of damping, i.e. the amplitude goes down from its maximum quickly, and as that happen, the period is affected.\\
+Many things cancel, including $\dot{y}$. We get a result that is clearly a simple harmonic oscillation! However, more in this case than we have seen previously, this result is not that accurate; at least not for the demonstration in lecture. There is a lot of damping, i.e. the amplitude goes down from its maximum quickly, and as that happens, the period is affected.\\
 Anyhow, we know the solution to this differential equation very well by now:
 
 \begin{align}
@@ -313,7 +313,7 @@ If we keep increasing the frequency, we will eventually find the second resonanc
 Increase the frequency further, we find the third harmonic, $f_3$. This adds another node, so there are now two nodes and three antinodes.\\
 Animated graphics are extremely useful here, so I suggest looking some up. Wikipedia has one on the page ``Node (physics)'' and several more in the article ``Vibrating string'', which shows the first five harmonics.
 
-Here is a still image from the lecture, which is about the best I can do in these notes:
+Here is a still image from the lecture, which is about the best I can do in these notes (in the lecture, Prof. Lewin also did a demonstration):
 
 \begin{center}
 \includegraphics[scale=0.8]{Graphics/lec31_nodes}
@@ -324,7 +324,7 @@ The second harmonic, $n=2$ (in pink) has a node at the center, with the antinode
 The third harmonic, $n=3$ (in green) has two nodes, with the leftmost and rightmost antinodes in phase with each other, and out of phase with the middle antinode.
 
 These frequencies follow a simple relationship of $f_n = n f_1$, i.e. they are integer multiples of the fundamental frequency. If $f_1 = 100$ Hz, then $f_2 = 200 Hz$, $f_3 = 300 Hz$ etc.\\
-In musical instruments, the second harmonic is therefore one octave higher than the first. The third is not one octave higher than the second, though, but rather a perfect fifth above.\footnote{In just intonation; in equal temperament, which most instruments use in modern times, a perfect fifth is $2^{7/12} \approx 1.4983$ times the frequency of a given note, but this is now really becoming music theory.}  (An octave doubles the frequency, which would be 400 Hz, so the fourth harmonic in an octave above the second.)
+In musical instruments, the second harmonic is therefore one octave higher than the first. The third harmonic is not one octave higher than the second harmonic, though, but rather an interval of a perfect fifth above.\footnote{In just intonation, a perfect fifth has a frequency ratio of 3:2, i.e. 1.5 times; in equal temperament, which most instruments use in modern times, a perfect fifth is exactly $2^{7/12} \approx 1.4983$ times the frequency of a given note, but this is now really becoming music theory.}  (An octave doubles the frequency, which would be 400 Hz, so the fourth harmonic in an octave above the second.)
 
 The frequency of the fundamental/first harmonic depends on the string's mass, length and tension (or, if you prefer, the mass per unit length, length and tension).
 
@@ -336,9 +336,9 @@ When playing a violin, the player changes the pitch by shortening the strings. W
 In the case we looked at earlier, with the driven spring and the long shaken string, the driver alone decided the frequency. How does that work in the case of e.g. a violin?\\
 When we use a bow on a violin, that rubbing motion can be thought to consist of many, many different frequencies at which the string is ``driven''. The string picks out its resonance frequencies, and so the frequencies we hear are mostly the different harmonics, i.e. integer multiples of the string's fundamental frequency.
 
-The ratio of the amplitudes of the different harmonics is what gives an instrument its \emph{timbre}. Consider a violin string that only oscillated at a single frequency $f_1$. The sound it makes would be a pure sine wave -- which sounds like a very boring ``beep'' and nothing at all like a violin.\\
+The ratio of the amplitudes of the different harmonics is what gives an instrument its \emph{timbre}. Consider a theoretical violin string that only oscillated at a single frequency $f_1$. The sound it would make is a pure sine wave -- which sounds like a very boring ``beep'' and nothing at all like a violin.\\
 For a middle A note, both a violin and a piano produce a 440 Hz sound with several harmonics, but they sound very different, as the harmonic content of the two are very different.\\
-Adding up only the odd harmonics -- 1, 3, 5 etc -- will produce a square wave, which adding up all harmonics gives a sawtooth wave. These terms are mostly used in synthesis of sound, but are also useful for describing the sound of real-world instruments. Violins have a lot of harmonic content, and are must closer to a sawtooth-shaped waveform than to a square-shaped one.
+Adding up only the odd harmonics -- 1, 3, 5 etc -- will produce a square wave, which adding up all harmonics gives a sawtooth wave. These terms are mostly used in synthesis of sound, but are also useful for describing the sound of real-world instruments. Violins have a lot of harmonic content, and are much closer to a sawtooth-shaped waveform than to a square-shaped one in timbre.
 
 \subsection{Woodwind instruments}
 
@@ -354,6 +354,8 @@ This instrument isn't very practical though; it's not only closed, so that the s
 This would be referred to as an open-open instrument. Flutes are open-open (more or less).
 We can also open up only one side, to create a closed-open instrument, such as a clarinet. In this case, the formula above doesn't apply; there is no additional detail to how or why it is different, though.
 
+In reality, the loudspeaker is of course replaced by the player (or the player's mouth, rather).
+
 \subsection{Other resonances}
 
 Next, there is some talk about how everything has a resonance frequency: from car keys to frying pans and refrigerators, people and wine glasses.\\
@@ -364,18 +366,18 @@ Resonances can also be destructive. By playing back a tone that corresponds to t
 Another well-known and oft-cited example is the Tacoma Narrows Bridge, first opened on July 1, 1940. It collapsed barely more than 4 months later, on a day of strong wind. However, while this is often presented as a resonance phenomena, it appears opinion has changed, and it is now consider to be due to aerodynamic flutter rather than forced oscillation. This is the same phenomena that causes a paper to oscillate when held steadily in constant airflow. Some also present it as a combination of multiple phenomena, and I certainly don't have the expertise to say who is correct, so I'll leave it at that.
 
 Finally, the professor demonstrates what happens when the speed of sound in a medium changes -- or when the medium itself changes, rather, by filling his lungs with helium while speaking. Sound travels about 2.7 times faster in helium than in air, and so the pitch created by our vocal chords goes way up if your lungs are filled with helium rather than air.\\
-Since helium is, well, helium, which doesn't contain the ~20\% oxygen we need to live, this experiment is dangerous if done incorrectly (or for anything but a short period of time).
+Since helium is, well, helium, which doesn't contain the $\approx 20$\% oxygen we need to live, this experiment is dangerous if done incorrectly (or for anything but a short period of time).
 
 \section{Lecture 32: Thermal expansion}
 
 We begin the lecture by introducing the concept of thermometric properties. A thermometric property is a property of an object that depends on the object's temperature. A typical one, that we will look at in this lecture, is that many objects expand when heated, and contract when cooled.\\
 If we heat up a gas in a closed container, the pressure in the container goes up, which is a thermometric property. If we heat an electric conductor, the electric resistance will tend to go up.\\
-(That is why regular light bulbs often break when turned on; the current through them is greatest the first split second before it starts to reach its operating temperature (which happens extremely quickly). After that, the resistance goes up, and so the current goes down, to its steady state level.)
+(That is why regular light bulbs often break when turned on; the current through them is at a maximum the first split second before it starts to reach its operating temperature (which happens extremely quickly). After that, the resistance goes up, and so the current goes down, to its steady state level.)
 
 If we heat a metal bar, it will expand. Cool it, and it will shrink. If we bring a hot and a cold iron bar together, there will be heat transfer between the objects until they are in thermal equilibrium, i.e. when their temperatures are equal. Until then, the two bars will both change in size as their temperature changes.
 
 We can construct a simple thermometer this way. We have a bar of some length $L$ of a known material, at a known temperature. We put the bar in melting ice, and measure a length $L_1$; we then put it in boiling water, and find a length $L_2$. We can then define a temperature scale such that, for example, $L_1$ means the temperature is 0 degrees, and $L_2$ means 100 degrees. This is basically how the Celsius scale works.\\
-This scale is (or was) often called \emph{centigrade} (from Latin's centum, meaning hundred and gradus meaning steps), though that name was formally obsoleted in 1948, and the scale is now known as the Celsius scale, after Anders Celsius, the Swedish astronomer who came up with it.
+This scale is (or was) often called \emph{centigrade} (from Latin's centum, meaning hundred and gradus meaning step), though that name was formally obsoleted in 1948, and the scale is now known as the Celsius scale, after Anders Celsius, the Swedish astronomer who came up with it.\footnote{Apparently, his original scale was the opposite: ice melted at 100 degrees, while water boiled at 0. Carl von Linn\'e, also know as Carl Linnaeus, reversed the scale soon after Celsius' death.}
 
 Another common temperature scale is the Fahrenheit scale, invented by German scientist Daniel Gabriel Fahrenheit. He used brine, a mixture of salt and ice, as the zero degree definition, and human body temperature as 100... roughly speaking, as 98.6 F is the most commonly quoted number for human body temperature these days, and 100 F is defined as having a fever.
 
@@ -388,7 +390,7 @@ T_C &= \frac{5}{9} \left(T_F - 32\right)
 
 The two scales ``cross over'' at -40 degrees, so $\SI{-40}{{}^\circ\text{F}} = \SI{-40}{\degreeCelsius}$.
 
-The third temperature scale (or perhaps rather unit) that is fairly common, especially very common in science, in the kelvin, which is an absolute temperature scale. Because it is absolute (see below), we do not talk about ``degrees'' kelvin, but just kelvin (just as we don't talk about degrees newton or degrees meter).\\
+The third temperature scale (or perhaps rather unit) that is fairly common, especially very common in science, is the kelvin, which is an absolute temperature scale. Because it is absolute (see below), we do not talk about ``degrees'' kelvin, but just kelvin (just as we don't talk about degrees pascal).
 The coldest temperature with any physical meaning, absolute zero, is by definition 0 K. At this temperature, it is often said that all motion stops (which is not entirely true, due to to the world of quantum mechanics), and so colder temperatures are not very meaningful. This might be expanded upon as early as next week, when Heisenberg's uncertainty principle is introduced.
 
 The kelvin scale is closely related to the Celsius scale: it is offset by exactly 273.15 degrees C, so that 0 K = $\SI{-273.15}{\degreeCelsius}$. Therefore, water boils at 373.15 K (at 1 atm of pressure).
@@ -407,6 +409,7 @@ where $\alpha$ is known as the \emph{linear expansion coefficient}, with units o
 As the values of $\alpha$ are often small, we can write them in terms of $10^{-6}/{}^\circ$C, equivalent to $\text{ppm/}^\circ$C or ppm/K.\\
 $\alpha$ for a few common materials is
 
+\begin{center}
 \begin{tabular}{|r|l|}
 \hline
 $\alpha$ & ppm/${}^\circ$C\\ \hline
@@ -417,11 +420,12 @@ Invar & 0.9\\
 Steel & 12\\
 \hline
 \end{tabular}
+\end{center}
 
-Invar is an alloy often used for its unusually low thermal expansion coefficient; it is 64\% iron and 36\% nickel. It was invented by Swiss scientist Charles \'{E}douard Guillaume in 1896; the invention won him the Nobel prize in physics in 1920.\\
+Invar is an alloy often used for its unusually low thermal expansion coefficient. There are several variations; the one usually called invar is 64\% iron and 36\% nickel. It was invented by Swiss scientist Charles \'{E}douard Guillaume in 1896; the invention won him the Nobel prize in physics in 1920.\\
 Having a material with a low thermal expansion coefficient is important for many precision instruments, for example.
 
-Consider a steel railroad track, 1000 meters long. In many climates, it might need to be usable at -15 degrees C, a cold winter's day, and also at +35, a hot summer's day. $\Delta T = 50$ degrees. Using the formula above, and the value of $\alpha$ of steel, we find $\Delta L = 0.6$ meters. If the rail is continuous and can't expand in the ``forward'' direction, it will start to bulge either sideways or upwards, whichever is easier.
+Consider a steel railroad track, 1000 meters long. In many climates, it might need to be usable at -15 degrees C, a cold winter's day, and also at +35, a hot summer's day, so $\Delta T = 50$ degrees. Using the formula above, and the value of $\alpha$ of steel, we find $\Delta L = 0.6$ meters. If the rail is continuous and can't expand in the ``forward'' direction, it will start to bulge either sideways or upwards, whichever is easier.
 
 How is this taken care of? The rail needs to be able to expand, or it will deform and become unusable. One solution is very simple: the railroad has gaps in it. We need gaps of up to 60 cm per km, so for example 5 cm per 80 meters gives the rail space to expand. With large enough wheels, this causes a ``clunk'' when riding over it, but nothing more.
 
@@ -441,7 +445,7 @@ When we heat this system, what happens? The copper must get longer, but the chan
 \Delta L_{Cu} - \Delta L_{invar} = (\alpha_{Cu} - \alpha_{invar}) L \Delta T
 \end{equation}
 
-For a 10 cm rod composed of copper and invar, the difference in expanded length is about 0.16 mm. However, the difference in height between the two sides will be about 3-4 mm\footnote{The professor says about 4 mm; a scientific paper on bimetal thermostats has a formula that gives about 3 mm.}, despite the small difference in length.
+For a 10 cm rod composed of copper and invar, the difference in expanded length is about 0.16 mm. However, the difference in height between the two sides will be about 3-4 mm\footnote{The professor says about 4 mm; a scientific paper on bimetal thermostats has a formula that gives about 3 mm; one or both are probably estimates, though.}, despite the small difference in length.
 
 We can use bimetals for example in thermostats, so that a bimetal being sufficiently cold makes contact in an electric circuit, to turn a heater on. Once the bimetal is warm enough, it expands and ``bends away'', so that the contact is broken, and the heater turns off.
 
@@ -471,7 +475,7 @@ The old volume is $V = L^3$, and the new volume $V + \Delta V = \left(L + \Delta
 
 \begin{align}
 \Delta V &= \left(L + \Delta L\right)^3 - V\\
-\Delta V &= L^3 \left(1 +  \frac{\Delta L}{L}\right)^3 - L^3\\
+\Delta V &= L^3 \left(1 +  \frac{\Delta L}{L}\right)^3 - L^3
 \end{align}
 
 Here, we simply factor out $L^3$, and then also substitute $V = L^3$.\\
@@ -481,7 +485,8 @@ Next, we use the first-order term of the Taylor expansion of $(1 + x)^n \approx 
 \Delta V &= L^3 (1 + 3 \frac{\Delta L}{L})     - L^3\\
 \Delta V &= 3 \frac{L^3 \Delta L}{L}\\
 \Delta V &= 3 L^2 (L \alpha \Delta T) \label{eq:lec32eq3}\\
-\Delta V &= 3 \alpha L^3  \Delta T
+\Delta V &= 3 \alpha L^3  \Delta T\\
+\Delta V &= 3 \alpha V  \Delta T
 \end{align}
 
 In \eqref{eq:lec32eq3} we simply substitute $\Delta L = L \alpha \Delta T$.\\
@@ -490,7 +495,7 @@ We find, then, that the result depends on some value $3 \alpha$. We usually writ
 The reason we can use the linear term only is that the next term in the Taylor series contains $\alpha^2$, which is extremely small. (For $L = 1$ m, $\Delta T = 100$ K and $\alpha = 10^{-5}/{}^\circ$C, the quadratic term is $3 \times 10^{-6}$, versus $1.003$ for the two terms we do have. )The higher-order terms are much smaller yet.
 
 We can now look at how a(nother) simple thermometer can work, e.g. a mercury thermometer, though other fluids are used these days, for safety reasons.\\
-Mercury has a $\beta$ of about $18 \times 10^{-5}/{}^\circ$C, while Pyrex has a value of roughly $10^{-5}$ (3 times the value of $\alpha$ we had earlier). A Pyrex container with mercury inside will then barely expand when heated, but the mercury inside certainly will -- about 18 times as much. If we make a reservoir of mercury at the bottom, and then a very narrow column upwards, we get this:
+Mercury has a $\beta$ of about $18 \times 10^{-5}/{}^\circ$C, while Pyrex has a value of roughly $\num{1e-5}$ (3 times the value of $\alpha$ we had earlier). A Pyrex container with mercury inside will then barely expand when heated, but the mercury inside certainly will -- about 18 times as much. If we make a reservoir of mercury at the bottom, and then a very narrow column upwards, we get this:
 
 \begin{center}
 \includegraphics[scale=0.8]{Graphics/lec32_mercury_thermometer}
@@ -498,17 +503,17 @@ Mercury has a $\beta$ of about $18 \times 10^{-5}/{}^\circ$C, while Pyrex has a 
 
 When the mercury/liquid expands, it has nowhere to go except up the display tube. We calculate how much the column will grow per degree, and create the scale accordingly. All that remains is then to fill it up to the correct level, and nature takes care of the rest.
 
-Consider a tiny radius of 0.1 mm, as shown, for the column tube. Ignoring the expansion of the Pyrex (which we probably shouldn't do if we actually built this), if our 1 cubic centimeter of mercury/liquid goes up in temperature by 10 degrees C, it expands by $V \beta \Delta T = \SI{0.0018}{cm^3}$.\\
+Consider a tiny radius of 0.1 mm, as shown, for the display tube. Ignoring the expansion of the Pyrex (which we probably shouldn't do if we actually built this), if our 1 cubic centimeter of mercury/liquid goes up in temperature by 10 degrees C, it expands by $V \beta \Delta T = \SI{0.0018}{cm^3}$.\\
 A very small increase, but hold on. A height $h$ in the tube can hold a volume $\pi r^2 h$, so we find $\displaystyle h = \frac{\SI{0.0018}{cm^3}}{\pi (\SI{0.01}{cm})^2} = 5.73$ cm! That gives us almost 6 mm per degree, which is quite a bit more than most such thermometers I've seen; very easily readable.
 
 \subsection{Expansion of water}
 
 Water is a peculiar substance. We have so far only talked about substances that expand when heated, but water behaves rather differently at some temperatures.\\
-If we take room-temperature water and cool it down slightly, it shrinks, as expected. However, once we reach 4 degrees C, cooling it further down to 0 will cause the water to expand!\\
-Put in other words, the density of water is at a maximum when it is at 4 degrees C. This also implies that in this region, $\beta < 0$.
+If we take room-temperature water and cool it down slightly, it shrinks, as expected. However, once we reach 4 degrees C, cooling it \emph{further} down to 0 will cause the water to expand!\\
+Put in other words, the density of water is at a \emph{maximum} when it is at 4 degrees C. This also implies that in this region between 0 and 4 degrees C, $\beta < 0$, so it changes sign at 4 degrees C.
 
 This causes several important phenomena. For one, the 4 degree water sinks to the bottom, while ice tends to float; therefore, the bottom of lakes and such tend to remain liquid all year round, so that fish can survive below the ice.
 
-For most materials, the solid of a material tends to sink in its liquid, but water is an exception.
+For most materials, the solid of a material tends to sink in its liquid (i.e. the solid tends to have a higher density, so that a given amount, measured by mass, is more compact), but water is an exception.
 
 \end{document}

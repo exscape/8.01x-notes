@@ -311,8 +311,12 @@ Using the simple relationship $\displaystyle Q = v_1 A_1  = v_1 \left(\frac{d_1}
 I suppose the question is rather ``at what depth $h$ is the hole located'', according to the picture.\\
 Let's see, what facts do we have? Not a whole lot in terms of given facts, but if we add to that the things discussed in lecture (and in the book), we have a lot more.
 
+We can solve this in multiple ways, I noticed.
+
+\subsection{Solution 1}
+
 The pressure at that depth is $P_1 = \SI{1}{atm} + \rho g h$. The pressure difference between inside and outside the bucket is then simply $\rho g h$.\\
-We can apply Bernoulli's equation here, again while ignoring the term related to gravitational potential energy, as there is no height difference involved. Using $P_1$ for the pressure inside the bucket at depth $h$, and $P_2$ for the pressure outside:
+We can apply Bernoulli's equation here, again while ignoring the term related to gravitational potential energy, as there is no height difference involved (if we consider a point at that depth, but at the container's left side, as being inside). Using $P_1$ for the pressure inside the bucket at depth $h$, and $P_2$ for the pressure outside:
 
 \begin{align}
 \frac{1}{2} \rho v_{inside}^2 + P_1 &= \frac{1}{2} \rho v^2 + P_2\\
@@ -321,7 +325,22 @@ We can apply Bernoulli's equation here, again while ignoring the term related to
 h &= \frac{v^2}{2g}
 \end{align}
 
-We consider the velocity inside the container to be negligible (compared to $v$), so that term disappears, and we can simplify down and find $h$.
+Here, I consider $v_{inside}$ to be negligible compared to $v$, so I ignore it. It we consider $v_{inside}$ to be the velocity \emph{just} inside the hole, that is clearly not correct. However, the rest of the equation is equally valid at the leftmost edge of the container.
+
+\subsection{Solution 2}
+
+I feel a bit funny about the assumption $v_{inside} = 0$ while considering a point at depth $h$ in the liquid, as the equation doesn't specify where that point is: near the hole, or far from it.\\
+We can solve this in a slightly different way. We again begin with Bernoulli's equation, but this time, we consider a point at the surface of the liquid (above the hole), and a point just outside the hole. Both are exposed to the atmosphere, so $P_1 = P_2 = \SI{1}{atm}$ and we don't need to specify that in the equation, as it will simply cancel.
+
+Instead, we have the gravitational potential energy per unit volume, $\rho g y$, in the equation. On the left side, we have at the top of the container, where it is $\rho g h$; I define the zero level to be at the hole, so the term only exists on the left-hand side.
+
+\begin{align}
+\frac{1}{2} \rho v_{surface}^2 + \rho g h &= \frac{1}{2} \rho v^2\\
+2 g h &= v^2\\
+h &= \frac{v^2}{2 g}
+\end{align}
+
+As before, we approximate the other velocity, this time at the surface, to be zero. We find exactly the same result using this method.
 
 \section{Problem 7: Buoyant force of a balloon}
 

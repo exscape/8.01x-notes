@@ -320,6 +320,273 @@ This gives us $V_2/V_1 \approx 0.26$. The radius changes less, though; $R \propt
 What did we miss? Well, we used the ideal gas law -- but we won't have gases when we're done! Remember that air is 80\% nitrogen, and we dip it into liquid nitrogen. The nitrogen inside the balloon may turn into liquid, since we cool it to approximately\footnote{The heat transfer may not be ideal, etc., so it may not go all the way down to 77 K.} its boiling point.\\
 The boiling point of oxygen at 1 atm is about 90.1 K, so we cool that down below its boiling point, too, so the oxygen should certainly become a liquid. We know, of course, that liquids have a \emph{way} higher density than gases, so it should not come as a huge surprise (when you consider the phase changes) that the volume is very small.
 
+\section{Lecture 34:Heisenberg's uncertainty principle}
 
+\subsection{Off-topic intro}
+
+This is a course on classical mechanics. It is extremely useful in many everyday situations, whether we talk about toy gyroscopes, elastic collisions in billiards or in all kinds of mechanical engineering. However, it it doesn't always hold true. At large velocities or in very strong gravitational fields, the laws of physics we've learned about here gradually become more and more incorrect. The velocities involved are on the order of 1/10 of the speed of light and greater (or a bit less, depending on the accuracy required); here, we need Einstein's theory of special relativity to find correct answers. For example, using what we have learned in this course, we can calculate the kinetic energy of a 1 kg mass moving at the speed of light as $\frac{1}{2} (\SI{1}{kg}) c^2 \approx \SI{4.5e16}{J}$, but this is a meaningless result. It would take an infinite amount of energy to accelerate a mass to that speed, and so via the work-energy theorem it would have an infinite kinetic energy.
+
+The actual kinetic energy is found as
+
+\begin{equation}
+K_e = m \gamma c^2 - m c^2 = m c^2 \left( \frac{1}{\sqrt{1 - v^2/c^2}} - 1 \right)
+\end{equation}
+
+Note that as $v \to c$, $K_e \to \infty$, which is not the case in Newtonian mechanics. If you try to plug in $v > c$, you get an imaginary result with no physical meaning.
+
+If we calculate the Taylor expansion of the above function centered at $v = 0$ and only keep the lowest-order term, $\frac{1}{2} m v^2$ is the only term that remains. That is, classical physics agrees with special relativity, only that the latter can handle the more extreme cases.\\
+If we plot these two functions between $v = 0$ and $v = 10^7$ m/s, they are almost impossible to tell apart. The plot starts to visually diverge at about $\SI{3e7}{m/s}$, where Einstein's version gives $\SI{4.534e14}{J}$ and the classical variant only $\SI{4.500e14}{J}$.
+
+The term
+
+\begin{equation}
+\gamma = \frac{1}{\sqrt{1 - v^2/c^2}}
+\end{equation}
+
+is called the Lorentz factor, and appears in many special relativity equations, regarding kinetic energy, momentum, time dilation, length contraction and probably other things I'm not yet aware of. It is a useful thing to know even if you only know Newtonian mechanics: the closer $\gamma$ is to 1, the more accurate the physics we've learned so far will be. For everyday speeds below 200 km/h, $\gamma$ is still 1 to within well over 10 decimal points. At 1000 km/s (yes, per second!), it is about 1.00000556, so calculating momentum as $m v$ instead of $m v \gamma$ will yield an error of much less than 1\%. At $10^8$ m/s, 1/3 the speed of light, $\gamma$ is \emph{still} only 1.06, though this is about where it starts to shoot off towards infinity and begins to truly matter.
+
+Now for a much quicker look on gravity.\\
+As an example, the orbit of Mercury cannot be predicted accurately using Newton's law of universal gravitation; its orbit precesses, at a rate of about 1.55 degrees per century relative to the Earth. Einstein's theory of general relativity explains this anomaly, and is currently the best theory of gravity we have. As mentioned, though, classical mechanics is still ``correct enough'' for the vast majority of applications. General relativity is heavily used in astrophysics, where it describes many things that Newtonian mechanics does not (and describes the rest of them more accurately), one of which is gravitational lensing: light bending in gravitational fields.
+
+I had to add a subsection label to this as it became a bit too strongly off topic -- I was going to write a few short sentences on the limits of classical mechanics and simply introduce relativity and quantum mechanics, but got a bit carried away!
+
+\subsection{The smaller world}
+
+After that off-topic introduction, let's now look at the second case where Newtonian mechanics stops working: the world of the very small, i.e. the atomic and sub-atomic scale.\\
+An atom is about $10^{-10}$ meters, including the surrounding electron cloud. The nucleus itself is much, much smaller yet, and yet it contains virtually 100\% of the atom's mass. The distance between the nucleus and the electrons is on the order of 100 000 times greater than the size of the nucleus.\\
+The nucleus consists of protons (positively charged) and neutrons (with no electric change, thus the name) bound together by the strong nuclear force, which is much stronger than the electromagnetic force, but has an extremely short range, on the order of a nucleus and less. The strong nuclear force is the reason why the nucleus can be held together despite the electromagnetic repulsion of the equal charges; without it, all nuclei would simply fall apart. (Neutrons and protons themselves couldn't exist without it either, as the quarks that make \emph{them} up are also held together by the strong force.)
+
+Atoms are basically all vacuum, as we can see above (the nucleus is almost zero size compared to the atom's total size) -- we're used to thinking of ``empty'' spaces being filled with air, but since air \emph{consists} of atoms, well, there isn't much of anything that fits inside an atom!\footnote{In quantum physics, there \emph{are} ``things'' inside this vacuum: empty space is not truly empty, but contains random energy fluctuations and short-lived virtual particles, in what's called a quantum foam. I won't (and can't!) go into more detail, though.}
+So why can we not walk through walls, if we all consist of mostly vacuum? The professor mentions that it's not easy to answer and that we cannot answer it using classical physics, which I find surprising.\\
+All (neutral) atoms have electrons in ``shells'' surrounding the nucleus. All electrons are negatively charged, and like charges repel; therefore, atoms repel each other. Your hands are being repelled by the wall even when you're standing ten meters from the wall, but with a force small enough that you cannot notice it. When you are ``touching'' the wall, the repulsive force is very large, and the closer you try to come, the stronger the repulsive force. That is, you never really touch a wall -- just you get really, really close, and the normal force the wall exerts on you really comes from this electromagnetic repulsion of the electron shells.
+
+As far as I know, the above explanation is fairly correct, and if not else a useful way to think of it. I'm not sure of the details of it, however. There must be a reason the professor didn't use it, and especially mentioned that it cannot be explained by classical physics.
+
+In 1913, Danish physicist Niels Bohr postulated that electrons move around the nucleus in well-defined energy levels, which are all distinctly separated from each other, and that electrons cannot exist in between these allowed energy levels. This is then the reason why the electron does not simply crash into the nucleus, as it would seem like it should, considering the electromagnetic attraction between the two.
+
+This concept of quantization was groundbreaking. It also implies that planetary orbits should be quantized; you couldn't orbit at an arbitrary distance, so that you couldn't move an object in orbit in or out just a tiny bit.\\
+it also implies that we can't bounce a tennis ball on the ground and have it reach any level; instead, there would be a set of allowed heights it could reach.
+
+However, the quantization here is on a very, very small scale. Small enough that we could never measure the effect on the scale of planetary orbits or tennis balls; the effect is \emph{much} too tiny for that. It is for exactly this reason that quantum mechanics has no meaning when it comes to the motion of tennis balls and planets.\\
+Some quantum phenomena are absolutely observable in daily life, however: magnetism has its origin in quantum physics, for example. We will also soon perform an experiment where we could say that quantum physics is observable using the naked eye.
+
+The professor stresses this point of quantized electron energy levels, as it is a very important one.
+
+When we heat a substance, the electrons can gain energy, and therefore jump to higher energy levels. Later on, they lose that energy, and fall back down. As they do, they emit photons: they need to lose that extra energy somehow (since the higher energy levels have, well, higher energy than their previous states).\\
+The professor makes an analogy with the work you do while lifting a vase in a gravitational field. You do work, but that energy is not lost; if you drop the vase, the stored gravitational potential energy is ``released'' by being converted into kinetic energy.
+
+\subsection{Photon energy and momentum}
+%%%%%%%%%
+%%%%%%%%%
+%%%%%% Change the subtitle?
+%%%%%%%%%
+%%%%%%%%%
+
+The energy of a photon can be written as
+
+\begin{equation}
+E = h f = \frac{h c}{\lambda}
+\end{equation}
+
+where $h$ is the Planck constant, $h \approx \SI{6.6e-34}{J s}$, perhaps the most important constant in all of quantum physics. There is also the related constant $\hbar$, ``h-bar'', which is $\hbar = \dfrac{h}{2\pi} \approx \SI{1.05e-34}{J s}$.\\
+$f$ is the photon's frequency in hertz, and $\lambda$ the wavelength in meters.
+
+This definition makes it clear that the greater the photon's energy, the shorter the wavelength, and vice versa.\\
+This also means that when an electron jumps from a high to a low energy state, and the energy difference between the two levels is very high, a short-wavelength photon will be generated, since it must contain all the energy of the jump. (A single energy jump always releases exactly one photon; an electron can fall down multiple levels in \emph{steps} however, in which case one photon is released per step. These photons will then have a smaller individual energy than if the entire jump were to be done in one step.)
+
+Here's a diagram illustrating these energy jumps.
+
+\begin{center}
+\includegraphics[scale=0.65]{Graphics/lec34_energy_levels}
+\end{center}
+
+The lowest-drawn line is the lowest allowed energy level, with energy increasing towards the higher levels.\\
+A jump from the highest energy level to the lowest one may generate a photon with too much energy (too short a wavelength) to be visible -- ultraviolet (or even beyond that), while some of the smaller jumps may correspond to visible wavelengths: blue for the more energetic visible ones, green for the mid-range ones, red for the lowest-energy visible jumps. Finally, even smaller jumps may generate invisible frequencies again, such as infrared or beyond.
+
+So when a material emits photons in this manner, we expect to see these very discrete photon wavelengths, and nothing at all in between. Indeed, we can test this. By using a diffraction grating (a concept later introduced in 8.02/8.02x), we can split the light into its constituent colors, in concept not unlike a prism, so that we see the colors laid out in a nice horizontal line, looking very much like pictures of emission and absorption spectra that we have seen earlier, e.g. like this:
+
+\begin{center}
+\includegraphics[scale=0.65]{Graphics/lec23_hydrogen_emission}
+\end{center}
+
+This is what we would expect to see from a pure-hydrogen source emitting light.
+
+\begin{center}
+$\vcenter{\hbox{\includegraphics[scale=0.65]{Graphics/lec34_helium_grating}}}$
+$\vcenter{\hbox{\includegraphics[scale=0.65]{Graphics/lec34_neon_grating}}}$
+\end{center}
+
+Above are two ``simulations'' of the gratings given to the students in lecture, as they could not capture the effect on video. The image on the left is from a helium light source, while that on the right is from a neon light source.
+
+Surprisingly, light also carries momentum! We know that in classical mechanics, $p = m v$, which clearly cannot hold for a photon (if they indeed have nonzero momentum), without some fancy tweaking; the mass of a photon is exactly zero, so $m v = 0$.\\
+What we do instead is to use Einstein's mass-energy equivalence, the famous $E = m c^2$:
+
+\begin{equation}
+m = \frac{E}{c^2} \Rightarrow p = \frac{E}{c^2} v \Rightarrow p = \frac{E}{c}
+\end{equation}
+
+... since $v = c$ for a photon.
+
+We can also find this more directly from the full, less-famous version of the equation:
+
+\begin{equation}
+E^2 = (m_0 c^2)^2 + (p c)^2
+\end{equation}
+where $m_0$ is the rest mass (which I denoted by $m$ above). Since $m_0 = 0$, the equation simplifies down considerably to
+
+\begin{equation}
+E = p c
+\end{equation}
+
+which is what we found before.
+
+This momentum also gives rise to interesting properties such as radiation pressure/light pressure: shining a light onto something causes a pressure (and therefore a force) due to this momentum transfer! This is used in practice to create spacecraft with ``solar sails'' that use the momentum transfer from reflected light to accelerate. The effect is too tiny to be noticed in daily life, though, considering that visible light has a momentum on the order of perhaps $10^{-27}$ kg m/s per photon. Despite that they come in large numbers, the radiation pressure of for example a regular lamp is negligibly small compared to just about any other force we experience.
+
+\subsection{Wavelength of a particle}
+
+Before quantum mechanics, physicists were divided into two camps: those who thought light to consist of particles, and those who thought it was made of waves.\\
+Newton believed that light was made of particles, while Dutch physicist Huygens believed they were waves.\\
+In 1801, British scientist Thomas Young showed fairly conclusively that light is a wave, by performing the famous double-slit experiment.\\
+You shine a monochromatic light onto two very thin slits in some material (that otherwise blocks light), and project that onto some surface a distance behind.\\
+What you see is an interference pattern: there is bright light at the center, then darkness a bit further out, then light again even further out, etc. This can be ``easily'' explained (and is discussed in detail in 8.02/8.02x, and likely even more in detail in 8.03) in terms of light being a wave, as the peaks of the wave cancel out with the valleys when the two arrive in phase, causing darkness; likewise, when two peaks arrive in phase, they add instead of cancel, and the result is a bright area.\\
+The two forms of interference are called destructive and constructive interference, respectively.
+
+So it looked like Huygens was right; light is a wave. However, later on, experiments were made that showed quite conclusively that light is made up of particles, perhaps most notably the photoelectric effect observed by Einstein (which won him his only Nobel prize) that required light to arrive in quantized ``packets'' of energy, rather than in a continuous wave. (Einstein didn't discover the effect itself, however.)
+
+Quantum mechanics says the answer to this disagreement is that light acts as \emph{both}, depending on the situation; this concept is known as wave-particle duality.
+
+One of the truly strange things about quantum mechanics is that we can consider \emph{matter particles} to be waves, as well. We now know that finding the wavelength of a photon of some given energy is easy, but what about the wavelength of an electron, or of a baseball?\\
+Louis de Broglie suggested that matter can act as waves in this manner. He also specified that the wavelength of such a particle would be
+
+\begin{equation}
+\lambda = \frac{h}{p}
+\end{equation}
+
+where $p$ is simply the momentum $m v$. We can derive this result ourselves using what we know of the momentum of light.
+
+We know that $E = p c$ and $\displaystyle E = h f = \frac{h c}{\lambda}$; if we put these together, we find
+
+\begin{equation}
+p c = \frac{h c}{\lambda} \Rightarrow  p = \frac{h}{\lambda}
+\end{equation}
+
+or, equivalently, $\displaystyle \lambda = \frac{h}{p} = \frac{h}{m v}$. This wavelength is called the \emph{de Broglie wavelength}, after him. This derivation assumes that the result is equally valid for matter particles as it is for light, though, which is by no means obvious.
+
+Note that if the momentum is higher, the wavelength is shorter. An electron moving at $10^7$ m/s, and with a rest mass on the order of $10^{-30}$ kg ($9.1\times 10^{-31}$ kg) has a classical momentum of about $\SI{9.1e-24}{kg m/s}$, which translates into a wavelength of about $\lambda = \SI{7.25e-11}{m}$ -- about 73 picometers, several times larger than at atomic nucleus.
+
+A daily life-sized object such a baseball, with a mass of 145 grams, moving at 130 km/h (36.11 m/s) has a momentum of about $5.24$ kg m/s, which gives it a de Broglie wavelength of about $1.3 \times 10^{-34}$ meters -- which is of course ridiculously small. It's far, far below what we could ever measure directly (at a billion billion times smaller than a proton), so this wavelength is meaningless in the macroscopic world. These kinds of quantum effects simply aren't observable at this scale.
+
+\subsection{Heisenberg's uncertainty principle}
+
+In 1926, Austrian physicist Erwin Schr\"odinger formulated the Sch\"odinger equation, which is at the heart of quantum mechanics; it is a wave equation, which describes how a quantum system evolves over time. It unifies these wave and particle behaviors into one set of rules.
+
+We talked earlier about the double-slit experiment and interference of waves. Amazingly, we can do this experiment with particles, too, and get the same end result! This is one of the many extremely nonintuitive results we can find in quantum mechanics.\\
+It seems bizarre that e.g. two electrons can be shot through two slits, and then combine and disappear. We really need to think in terms of waves for this to make any sense at all; if the electrons are instead two waves moving through the slits, it does make sense that they can cancel each other out at certain locations.
+
+Let's now look at another bizarre effect in the quantum world. In classical physics, we can measure the momentum and position of an object with any precision that we need, as long as we have the equipment and cleverness. The object has a certain mass, and we can measure its position and momentum at the same time with no problems.
+
+In quantum mechanics, this is not possible. We can measure the position to an arbitrary accuracy, and the momentum to an arbitrary accuracy, but not at the same time! The more exactly we know one, the less exactly we know the other, in this one measurement. This is known as Heisenberg's uncertainty principle.
+
+``The very concept of exact position of an object and its exact momentum, together, have no meaning in nature.''
+
+One way of writing this down mathematically is
+
+\begin{equation}
+\Delta p \Delta x \overset{>}{\approx} \frac{\hbar}{2}
+\end{equation}
+
+where again $\displaystyle \hbar = \frac{h}{2\pi} \approx 10^{-34}$ joule-seconds.\\
+The right-hand side is often written as a factor 2 larger, and I'm not sure which we actually should use. The principle is also often stated in terms of standard deviations. I think we'll have to accept that this is approximate, and take a proper quantum mechanics course for more detail.
+
+Roughly speaking, then, if we know the position to an accuracy $\Delta x$, the momentum is non-determined by an amount
+
+\begin{equation}
+\Delta p \overset{>}{\approx} \frac{\hbar}{2 \Delta x}
+\end{equation}
+
+The lecture uses twice this ($\hbar$ rather than $\hbar/2$), but there was a caption suggesting that the above values are the ones that \emph{should} have been used in the lecture, i.e. a post-recording correction, so I chose to use their corrected information instead of the one actually shown in the lecture video itself.
+
+The professor uses a story from a book, trying to describe quantum mechanics in an intuitive way (more or less). In this story, we set $\hbar = 1$, instead of about $10^{-34}$. This essentially has the effect of scaling up these quantum effects to a level where we can observe them.\\
+So in this world where $\hbar = 1$, a character in the book takes a billiard ball and puts it in a triangle (which is used to align the balls at the start of the game; it can fit exactly 15 such balls in the case of pool).
+
+Assuming the ball stays inside the triangle (which may not be a safe assumption in this crazy quantum world; see quantum tunneling), we have constrained its position to $\Delta x \approx 0.3$ meters. We \emph{know} that it must be somewhere inside the triangle. Via Heisenberg's uncertainty principle, this implies that the ball's momentum is ill-defined to about $1/0.3$ kg m/s (using $\hbar = 1$, and using $\Delta x \Delta p \overset{>}{\approx} \hbar$, as in the lecture), so about 3 kg m/s. If the ball has a mass of 1 kg, the ball's velocity is undetermined to about 3 m/s -- $\Delta p = m \Delta v$. It's moving around like crazy, simply because we constrained its position.
+
+Professor Lewin reads a passage from the book (``the professor'' in what follows refers to a character in the book):
+
+``Look here'', the professor said. ``I'm going to put definite limits on the position of this ball by putting it inside a wooden triangle.''\\
+As soon as the ball was placed in the enclosure, the whole inside of the triangle became filled up with the glittering of ivory.\\
+''You see'', said the professor, ''I defined the position of the ball to the extent of the dimensions of the triangle. This results in considerable uncertainty in the velocity, and the ball is moving rapidly inside the boundary.\\
+''Can't you stop it?'', asks Mr. Tompkins.\\
+''No, it is physically impossible. Any body in an enclosed space possess a certain motion. We physicists call it zero point motion. For example, the motion of electrons in any atom.''
+
+So with $\hbar = 1$, the bizarre consequences of the quantum world become more apparent to us, though hardly much easier to grasp.\\
+What happens when we perform this experiment in the real world? Well, we perform the same math, but with $\hbar$ being $10^{-34}$ times smaller than above. The effects scales linearly with $\hbar$, so the uncertainty in the ball's velocity is now on the order of $\SI{3e-34}{m/s}$ -- a value so tiny that we could never measure it. In one billion years, the ball would move at most 1/100 of the diameter of a proton. Such distances and velocities are of course completely meaningless to us, and so we again see that these effects are irrelevant in the macroscopic world ``of baseballs and billiards and pots and pans''.
+
+For this reason, it is no problem for us to talk about a billiard ball being exactly at a certain position, and having exactly zero speed. The error is so far beyond measurable that we could never show whether it actually exists or not, so it is completely safe to ignore it and keep working as usual.
+
+Let's now look at an atom, and more specifically the electrons ``orbiting'' it. Say an atom is about $10^{-10}$ meters. An electron is then confined to $\Delta x \approx 10^{-10}$ m. Using the uncertainty principle, we can find that
+
+\begin{align}
+m \Delta v \Delta x &\overset{>}{\approx} \hbar\\
+\Delta v  &\overset{>}{\approx} \frac{\hbar}{m \Delta x}
+\end{align}
+
+(Again, this is using the lecture's possibly incorrect equations and not the ones they later added as corrections via overlaid text, though I'm not sure if either form can be used for accurate calculations.)\\
+Using $\Delta x = 10^{-10}$ m and $m \approx 10^{-30}$, we find $\Delta v \overset{>}{\approx} 10^6$ m/s, a third of a percent of the speed of light. So the electron moves simply because it is confined.
+
+\subsection{The single-slit experiment}
+
+The professor then makes a demonstration that can be explained in terms of the uncertainty principle. We shine a laser beam, monochromatic light (i.e. it consists of only one wavelength, as opposed to e.g. white light) onto a thin vertical slit in a material that otherwise blocks light. A distance $L$ away (where $L$ is several meters), we have a wall, that this light pattern is projected upon.
+
+During the experiment, we then shrink the (vertical) slit's width. In doing so, less light will manage to pass through -- that much is clearly unavoidable -- and the laser dot projected on the wall will have its sides ``chopped off'', just as we would predict.\\
+However, in doing this, we are constraining $\Delta x$. The thinner the slit is, the better we know the $x$ position of the photons that pass through (if we consider them as photons rather than waves, that is). Because of this, via the uncertainty principle, we lose accuracy in our knowledge of the momentum in the $x$ direction (the direction we are constraining the photons in).
+We are not constraining the beam in the $y$ directions, so nothing out of the ordinary will happen in the vertical direction.\\
+Horizontally, however, the light begins to \emph{spread out}. The \emph{thinner} the slit becomes, the \emph{wider} the light projection becomes! Simply because we reduce $\Delta x$ and constrain the light's position, the x-component of the momentum is starting to become more and more ill-defined, and some of the light spreads out accordingly.
+
+We can work this out semi-quantitatively. The momentum of each photon is about $10^{-27}$ kg m/s, according to the professor. This indeed corresponds to the wavelength of red light; the laser in the lecture is green, but everything here is an order-of-magnitude approximation, so there's little point in being more precise.\\
+Say we start with the slit at 1/10 mm, that is, it can pass though a slit of width $\Delta x \approx 10^{-4}$ meters, constraining its position. That makes the x-component of the momentum ill-defined to about $h/\Delta x \approx 10^{-34} / 10^{-4} = 10^{-30}$ meters. (I'm not sure if $\hbar$ was/should be used here, but it seems it was not; consider this an order-of-magnitude type result either way.)
+
+The total momentum is then the sum of the light's original momentum and this $\Delta p$, so the path changes path according to this vector addition:
+
+\begin{center}
+\includegraphics[scale=0.65]{Graphics/lec34_momentum_uncertainty}
+\end{center}
+
+We then expect some of the light to shoot off at an angle, but only in the $x$ direction; the light is not constrained at all in the $y$ direction (the slit's height is much greater than the light beam's diameter).
+
+The angle $\theta$ between the original vector and the new one can now be easily calculated. Using trigonometry, $\tan \theta = \Delta p / p$. For small angles, $\tan \theta \approx \sin \theta \approx \theta$, we can consider this simply as $\theta = \Delta p / p$. (The professor did this implicitly.)
+
+For the values we have, with $\Delta x = 1/10$ mm leading to $\Delta p \approx 10^{-30}$ kg m/s, we find $\theta \approx 10^{-3}$ radians. Using the definition of a radian, we can multiply this by the distance $L$ to the screen to get the approximate size at the screen. With $L = 10$ meters, we find $\theta L \approx 1$ cm (in each direction from the center, so a total width of about 2 cm).
+
+However, if we make the slit 10 times smaller, $\Delta p$ grows by 10 times, which causes $\theta$ to grow by 10 times, and therefore $\theta L$ also grows by 10 times. The ``uncertainty'' is now 10 cm in each direction of the center, so the light has spread out way more. This is then demonstrated in the lecture -- which is clearly something that must be \emph{seen}!
+
+The professor then makes it clear that this can be explained without the uncertainty principle -- and was explained to high accuracy even in the 19th century; this demonstration is however entirely consistent with the uncertainty principle.\\
+(This experiment is also discussed in further detail in 8.02/8.02x, in the context of interference of light waves and diffraction; there, we also explain the dark bands that appear, that I briefly mentioned in regards to the \emph{double} slit experiment, where they are more prominent and appear in two ways, rather than one way as seen here.)
+
+Modern quantum physics can make some incredibly accurate predictions (I read that in some cases, we can measure quantum phenomena to an accuracy a million times better than that of some astronomical phenomena), however, we cannot predict exactly where each photon is going to end up. Quantum mechanics is, by its very nature, a probability-based theory. We can calculate how the pattern will look after a whole lot of photons have hit the screen, as they are more likely to end up in some places. However, we cannot predict anything at all about what an individual photon will do; as far as we can tell, nature has an intrinsic randomness built into it.
+
+It has been argued that perhaps this behavior is not random; perhaps it would be predictable, only that there are some variables we are not aware of, and that a more complete theory \emph{would} be able to predict all behavior (given all necessary initial conditions). Certain types of these theories seem to have been disproven, and as of yet, there is no proof of these so-called ``hidden variables'' existing, though there is still discussion and research being done in this area, to the best of my understanding. That is, quantum mechanics still appears to be indeterministic: given all possible information about every particle in the universe, you still cannot predict exactly what will happen next, only come up with accurate probabilities.
+
+One more crazy detail in regards to this: it's important to realize that this experiment cannot be adequately explained by photons (particles) interfering with each other. The exact same pattern will build up over time \emph{regardless} of the rate you shoot the photons through. Even if you shoot one photon, wait 5 minutes, shoot the next, etc. the same pattern will emerge over time. The photon must in some way interfere with... itself? This only really makes any kind of sense if we consider waves.
+
+Also, the same experiment can be and has been done with particles, ranging from electrons up to multi-atom structures such as ``buckyballs'' (each of which consists of 60 carbon atoms), and the results are exactly as predicted by quantum mechanics. Photons, electrons or buckyballs -- nature doesn't really care and treats them the same way, it would seem!
+
+\subsection{Some notes on the uncertainty principle}
+
+(This last section is not at all from the lecture, and is (just as the intro section to this lecture) all written by me. That is, you shouldn't take anything in here as hard fact, as I have not studied quantum mechanics to any greater extent than what this course teaches, plus some popular science which often is just as misleading as it is informative.)
+
+A common question (and misconception) is that this uncertainty is a technical limit in our measuring equipment; it is not. It is a physical limit built into nature. I hardly have the expertise (or even basic knowledge) of quantum mechanics to know this myself yet, but many describe the entire notion of perfectly knowing both momentum and position as \emph{meaningless} in quantum mechanics, including that quote in the lecture earlier.
+
+Another common explanation for this uncertainty (one that I've liked myself) is that in order to for example measure the position of an electron, we need to probe it somehow, perhaps using light (sending photons to interact with it). A photon of long wavelength has little energy and thus little momentum, and won't disturb the electron a lot; we get a fairly accurate measurement of its momentum, but since the light wavelength is large, we don't know \emph{exactly} where it is; we only have a fuzzy idea about the position!
+
+If we want to measure the position accurately, we instead need to use light of a shorter wavelength (smaller $\Delta x$), i.e. greater energy (and greater momentum, $p = E/c$ for light). This means we will know where the electron is (was) very accurately, but because we transferred a large amount of momentum to it, we can now not know its momentum exactly.
+
+The above explanation (Heisenberg's microscope) is not technically accurate, though. It is a metaphor, rather than an explanation. In reality, the uncertainty predicted by the uncertainty principle is greater than that in the above experiment.
+
+My current understanding (again, without having actually studied any quantum mechanics -- this is still unlikely to be 100\% correct!) is that the uncertainty arises from the wave nature of matter. That is, the electron doesn't really \emph{have} a perfectly defined position until it is probed; prior to the probing, the electron's position is only a probability distribution. It may be likely to be confined in a small volume, but it is still \emph{possible} for it to be outside it -- even infinitely far away, only with a probability moving closer to 0 the further away you go.
+
+\section{Lecture 35: Professor Lewin's early days at MIT}
+
+I did not take any notes for this lecture. It is as always absolutely worth watching, but it feels pointless to write it down -- professor Lewin is telling \emph{his} story, and I should leave that to \emph{him} to do so! If you want it in text form, his book ``For the Love of Physics'' talks about  these topics and several others!
 
 \end{document}

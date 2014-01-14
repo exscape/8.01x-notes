@@ -475,7 +475,7 @@ The torque on the bob is given by the torque due to gravity, $\vec{\ell} \times 
 The former is $\ell m g \sin \theta$; $\sin \theta$ because of the cross product, while there other terms should be rather clear.
 
 So what is the torque due to the spring force? Well, first, what \emph{is} the spring force? It's clear that it will be leftwards at this moment, just as the torque due to gravity.
-The magnitude is simply $k$ times the extension of the spring. Since it is at equilibrium when $\theta = 0$, it is stretched an amount $\ell \sin \theta$ past that.\\
+The magnitude is simply $k$ times the extension of the spring. Since it is at equilibrium when $\theta = 0$, it is stretched an amount $\ell \sin \theta$ past that, \emph{if we neglect the vertical displacement}, as hinted (``Note that the direction of the spring force on the pendulum is horizontal to a very good approximation for small angles $\theta$'').\\
 To find the torque, we take $\ell$ (the lever arm; there is no torque relative to the bob's center since the spring is fastened there, but there is a torque relative to point P) and multiply that by the spring force $k \ell \sin \theta$.\\
 We should then multiply this by the sine of the angle between the two vectors; that angle is $\theta + \ang{90}$, which gives us a $\cos \theta$ term via $\sin(\ang{90} + \theta) = \cos \theta$. We can approximate this term as 1 and ignore it, since we are allowed to use the small angle approximation.
 
@@ -635,6 +635,10 @@ We can substitute this into the larger equation, and solve for $v_1$.
 
 \begin{align}
 \frac{1}{2} m_1 v_1^2 + \frac{1}{2} m_2 \left(\frac{m_1}{m_2} v_1\right)^2 &= m_1 g R\\
+v_1^2 + \frac{m_1}{m_2} v_1^2 &= 2g R\\
+v_1^2 \left(1 + \frac{m_1}{m_2}\right) &= 2g R\\
+v_1^2 &= \frac{2g R m_2 }{m_1 + m_2}\\
+v_1 &= \sqrt{\frac{2g R m_2 }{m_1 + m_2}}
 \end{align}
 
 I find $v_1 = 2.529$ m/s, about 90\% of what we would find if the ramp was immovable. The ramp itself is moving at $v_B = 0.632$ m/s towards the left (calculation not shown; I used Mathematica for that one as a quick test), with momentum $2.529$ kg m/s, as expected -- the cube's mass is exactly 1 kg, so its momentum has the same value as its velocity, as can be seen here; the two are identical in magnitude, but opposite in direction, so the total horizontal momentum is indeed zero.

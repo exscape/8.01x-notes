@@ -14,7 +14,7 @@
 (a) For what value of $\theta$ ( where $\theta>\alpha$) does the gun have a maximal range along the slope? (In degrees, from the horizontal.)\\
 (b) What is the maximal range of the gun, $\ell_{max}$, along the slope? (In meters.)''
 
-Let's see. We want to maximize $\ell_{max}$, and also find the value of $\theta$ which causes it to be maximized. That is, we find a function $\ell_{max}(\theta)$, take its derivative, set that equal to zero, and look at the point(s) to find the maximum.
+Let's see. We want to maximize $\ell_{max}$, and also find the value of $\theta$ which causes it to be maximized. That is, we find a function $\ell_{max}(\theta)$, take its derivative, set that equal to zero, and look at the point(s) we find to to identify the maximum.
 
 $\ell_{max}$ is not the total distance the bullet moves, of course; the parabolic trajectory is much longer than the actual distance moved along the slope. In order to find the diagonal distance, we can write down the $x$ and $y$ coordinates where the bullet hits, and use some trigonometry.
 
@@ -180,6 +180,7 @@ My first try was way incorrect -- I misread the question completely. I read it a
 So there's a pivot point, which is located a distance $d/3$ from the \emph{end} of the rod. The end is located a distance $d/2$ from the center of the rod, and so the pivot point is located $d/2 - d/3 = d/6$ from the rod's center (of mass).
 
 We can use the relationship $L = I \omega$ to find $\omega$. The angular momentum of the rod prior to the collision is zero, so the angular impulse from the collision will equal its final angular momentum $L$, about the pivot point.\\
+(Alternatively, we can consider the angular momentum of the system to be constant about the pivot point; just prior to the collision, the total angular momentum is $m v_0 (d/3)$ from the small mass and $0$ from the rod; this is conserved for the system after the collision.)\\
 What is the moment of inertia $I$ about this point though? We start off with the moment of inertia of a rod, about its center of mass, which is $\frac{1}{12} M d^2$. Next, we need to increase that by an amount $M (d/6)^2$ via the parallel axis theorem, as we aren't rotating it about its center of mass.\\
 Finally, we must add the moment of inertia due to the point mass, which is $m r^2$, where $r$ is the distance between the rotation axis and the point where it is stuck. ($r$ is \emph{not} the distance from the center of mass to that point -- if it were stuck at the rod's center of mass, it would still have a nonzero contribution!)\\
 That distance is $r = d/3$ as given in the problem, so we add $m r^2 = m (d/3)^2 = \frac{1}{9} m d^2$, for a total moment of inertia of
@@ -409,7 +410,7 @@ $a$ for one object must be the same for all three, since they are at rest relati
 The total mass of the three objects is $3m$, and since $F$ in the only horizontal external force, $a = F/(3m)$ must hold.
 
 My first take on this one was incorrect -- the answer I found wasn't among the options, so I didn't waste any submissions, however.\\
-I noticed that if I wrote the normal force in terms of $\sec\theta$ instead of $\cos\theta$, the answer was listed, though I couldn't really figure out \emph{why} that would be correct. I did come up with the solution after a while, and got it right. A few hours later, I came up with this simpler solution, which stared me in the face the entire time. (I had tried to find an equation that I'd basically already written down, only rearranged.)
+I noticed that if I wrote the normal force in terms of $\sec\theta$ instead of $\cos\theta$, the answer was listed, though I couldn't really figure out \emph{why} that would be correct. I did come up with the solution after a while, and got it right. A few hours later, I came up with this solution, which is really what I had the entire time, only I confused the expressions for $N$ and that of $N \cos \theta$ earlier.
 
 Anyway, let's look at the forces involved. On the top block, there are three forces: gravity at $m g$ straight down, a normal force of that same magnitude straight up, and a frictional force $\mu_s m g$, towards the right. (This is the force that provides the acceleration of the block.)\\
 This is, by the way, using the condition that the block is about to slip; $F_f \le \mu_s m g$ in general, but in the about-to-slip case, it is exactly equal.
@@ -505,7 +506,7 @@ Finally, we use the relationship $\tau = -I \alpha$ (not forgetting the minus si
 
 (Without the minus sign, this equation would not make sense: it would state that as you move the bob towards the right, the angular acceleration would grow in that same direction.)
 
-This is in the form $\ddot{\theta} = -\omega^2 \theta$ (with $\omega$ being a constant), which is a simple harmonic oscillation. We can calculate the answer to part (b) using the above equation, and then use the solution to the above differential equation to find the period, part (c).
+This is in the form $\ddot{\theta} = -\omega^2 \theta$ (with the angular frequency $\omega$ being a constant), which is a simple harmonic oscillation. We can calculate the answer to part (b) using the above equation, and then use the solution to the above differential equation to find the period, part (c).
 
 The period is given by $\displaystyle T = \frac{2\pi}{\omega}$, where $\omega$ is (as noted above) the square root of the term multiplying $\theta$.
 
@@ -568,7 +569,7 @@ x &= x_1 \cos (\omega t + \varphi)\\
 T &= \frac{2 \pi}{\omega} = 2\pi \sqrt{\frac{m}{k + \alpha m g}}
 \end{align}
 
-I was about to write $x_{max}$ for the amplitude, but the amplitude is what we call $x_1$ in this problem.\\
+The amplitude (that we usually call $x_{max}$) is what we call $x_1$ in this problem.\\
 We need to use $\dot{x}$ to find the ``amplitude'' $x_1$ and the phase angle $\varphi$. We should be able to calculate the time taken (part b) as $T/4$, but let's take one step at a time.
 
 By setting the $x$ and $\dot{x}$ equations to their respective values at $t = 0$ (our initial conditions), we find
@@ -641,7 +642,7 @@ v_1^2 &= \frac{2g R m_2 }{m_1 + m_2}\\
 v_1 &= \sqrt{\frac{2g R m_2 }{m_1 + m_2}}
 \end{align}
 
-I find $v_1 = 2.529$ m/s, about 90\% of what we would find if the ramp was immovable. The ramp itself is moving at $v_B = 0.632$ m/s towards the left (calculation not shown; I used Mathematica for that one as a quick test), with momentum $2.529$ kg m/s, as expected -- the cube's mass is exactly 1 kg, so its momentum has the same value as its velocity, as can be seen here; the two are identical in magnitude, but opposite in direction, so the total horizontal momentum is indeed zero.
+I find $v_1 = 2.529$ m/s, about 90\% of what we would find if the ramp was immovable. The ramp itself is moving at $v_B = 0.632$ m/s towards the left, with momentum $2.529$ kg m/s, as expected -- the cube's mass is exactly 1 kg, so its momentum has the same value as its velocity, as can be seen here; the two are identical in magnitude, but opposite in direction, so the total horizontal momentum is indeed zero.
 
 That ends this exam, this course and these notes! Thanks for reading.
 
